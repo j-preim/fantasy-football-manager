@@ -2,9 +2,9 @@
  * Map defaultPositionId -> color
  */
 export const POSITION_ID_TO_COLOR: Record<string, string> = {
-  "QB": "royalblue", //"QB":
+  "QB": "purple", //"QB":
   // "1B": "blue", //"1B"
-  "RB": "purple", //"RB"
+  "RB": "royalblue", //"RB"
   "WR": "green", //"WR"
   "TE": "indianred", //"TE"
   "D/ST": "orange", //"D/ST"
