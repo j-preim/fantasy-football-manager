@@ -114,7 +114,7 @@ async function fetchEspnTeams(): Promise<EspnTeam[]> {
 
   const cookieHeader = `espn_s2=${espnS2}; SWID=${encodeURIComponent(swid)};`;
 
-  const url = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/flb/seasons/${season}/segments/0/leagues/${leagueId}?view=mTeam&view=mRoster`;
+  const url = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${season}/segments/0/leagues/${leagueId}?view=mTeam&view=mRoster`;
 
   const response = await fetch(url, {
     credentials: "include",

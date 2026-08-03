@@ -23,7 +23,7 @@ export async function GET() {
     const cookieHeader = `espn_s2=${espnS2}; SWID=${encodeURIComponent(swid)};`;
 
     // Start by testing in browser devtools Network tab to see the request ESPN makes.
-    const url = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/flb/seasons/${season}/segments/0/leagues/${leagueId}?view=mTeam&view=mMatchup`;
+    const url = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${season}/segments/0/leagues/${leagueId}?view=mTeam&view=mMatchup`;
 
     const r = await fetch(url, {
       credentials: "include",

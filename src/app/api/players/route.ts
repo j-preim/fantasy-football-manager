@@ -16,7 +16,7 @@ export async function GET() {
     const season = Number(seasonStr);
     const players = [];
 
-    const url = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/flb/seasons/${season}/players?view=players_wl`;
+    const url = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${season}/players?view=players_wl`;
 
     const r = await fetch(url, {
       headers: {
