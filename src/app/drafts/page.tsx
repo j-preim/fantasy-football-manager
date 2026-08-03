@@ -110,7 +110,7 @@ export default function DraftsPage() {
           height={24}
         />
         <h1 style={{ fontSize: 20, fontWeight: 900 }}>
-          NFL Keeper League |{" "}
+          NFL Keeper League |{" "} <br></br>
           <span style={{ fontSize: 18, fontWeight: 400 }}>Draft Explorer</span>
         </h1>
       </div>
