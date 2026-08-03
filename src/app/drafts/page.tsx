@@ -13,7 +13,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { positionColor } from "@/lib/players/positionColorMapper";
-import { mlbTeamStr } from "@/lib/players/mlbTeamStrMapper";
+import { nflTeamStr } from "@/lib/players/nflTeamStrMapper";
 
 export default function DraftsPage() {
   const [data, setData] = useState<DraftData | null>(null);
@@ -104,13 +104,13 @@ export default function DraftsPage() {
       >
         <Image
           className="dark:invert"
-          src="/baseball.svg"
-          alt="Baseball icon"
+          src="/football.svg"
+          alt="Football icon"
           width={24}
           height={24}
         />
         <h1 style={{ fontSize: 24, fontWeight: 900 }}>
-          Sotaly Tober |{" "}
+          NFL Keeper League |{" "}
           <span style={{ fontSize: 22, fontWeight: 400 }}>Draft Explorer</span>
         </h1>
       </div>
@@ -198,7 +198,7 @@ export default function DraftsPage() {
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Acuna, Ohtani…"
+            placeholder="Gibbs, Cook…"
             style={control()}
           />
         </label>
@@ -313,8 +313,8 @@ export default function DraftsPage() {
                             cell.getContext(),
                           )}
                             <Image
-                              src={`/mlb-logos/${mlbTeamStr(cell.row.original.proTeamId ?? 0).toLowerCase()}.png`}
-                              alt="Baseball icon"
+                              src={`/nfl-logos/${nflTeamStr(cell.row.original.proTeamId ?? 0).toLowerCase()}.png`}
+                              alt="Football icon"
                               width={16}
                               height={16}
                               priority

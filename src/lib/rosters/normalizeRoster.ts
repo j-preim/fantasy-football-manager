@@ -1,5 +1,5 @@
 import { positionStr } from "../players/positionStrMapper";
-import { mlbTeamStr } from "../players/mlbTeamStrMapper";
+import { nflTeamStr } from "../players/nflTeamStrMapper";
 import {lineupSlotStr} from "./lineupSlotStrMapper";
 
 export type EspnRosterEntry = {
@@ -66,7 +66,7 @@ export function normalizeEspnRosterData(teams: EspnTeam[]): NormalizedRosterPlay
         defaultPositionId: player.defaultPositionId ?? null,
         defaultPosition: positionStr(player.defaultPositionId ?? 0),
         proTeamId: player.proTeamId ?? null,
-        proTeam: mlbTeamStr(player.proTeamId ?? 0),
+        proTeam: nflTeamStr(player.proTeamId ?? 0),
         eligibleSlots: player.eligibleSlots ?? [],
         lineupSlotId: entry.lineupSlotId ?? null,
         lineupSlot: lineupSlotStr(entry.lineupSlotId ?? 0),

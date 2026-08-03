@@ -6,7 +6,7 @@ import path from "path";
 //   normalizeEspnRosterData,
 //   EspnTeam,
 // } from "@/lib/rosters/normalizeRoster";
-import { mlbTeamStr } from "@/lib/players/mlbTeamStrMapper";
+import { nflTeamStr } from "@/lib/players/nflTeamStrMapper";
 import { positionStr } from "@/lib/players/positionStrMapper";
 import { lineupSlotStr } from "@/lib/rosters/lineupSlotStrMapper";
 import { getPotentialKeeperRound } from "@/lib/rosters/keepers";
@@ -93,7 +93,7 @@ async function loadDraftPicks(): Promise<DraftPick[]> {
     process.cwd(),
     "public",
     "drafts",
-    "updated_draft_recap_2026.json",
+    "updated_draft_recap_2025.json",
   );
   const raw = await fs.readFile(filePath, "utf8");
   return JSON.parse(raw);
@@ -165,7 +165,7 @@ function buildKeeperResponse(
             fullName: player.fullName ?? `Player ${playerId}`,
             defaultPosition: positionStr(player.defaultPositionId ?? 0),
             defaultPositionId: player.defaultPositionId ?? 0,
-            proTeam: mlbTeamStr(player.proTeamId ?? 0),
+            proTeam: nflTeamStr(player.proTeamId ?? 0),
             proTeamId: player.proTeamId ?? null,
             lineupSlot: lineupSlotStr(entry.lineupSlotId ?? 0),
             lineupSlotId: entry.lineupSlotId ?? null,

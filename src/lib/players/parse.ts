@@ -1,6 +1,6 @@
 import type { Player } from "./types";
 import { positionStr } from "./positionStrMapper";
-import { mlbTeamStr } from "./mlbTeamStrMapper";
+import { nflTeamStr } from "./nflTeamStrMapper";
 
 type RawPlayer = {
   playerId: number;
@@ -54,7 +54,7 @@ export function parsePlayers(raw: any): Player[] {
         eligibleSlots: item.eligibleSlots,
 
         proTeamId: item.proTeamId,
-        proTeamStr: mlbTeamStr(item.proTeamId),
+        proTeamStr: nflTeamStr(item.proTeamId),
 
         ownership: ownershipPct,
       });

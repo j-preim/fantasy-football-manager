@@ -2,16 +2,16 @@
  * Map defaultPositionId -> color
  */
 export const POSITION_ID_TO_COLOR: Record<string, string> = {
-  "C": "blueviolet", //"C":
-  "1B": "blue", //"1B"
-  "2B": "magenta", //"2B"
-  "3B": "green", //"3B"
-  "SS": "slateblue", //"SS"
-  "OF": "royalblue", //"OF"
-  "DH": "indianred", //"DH"
-  "SP": "red", //"SP"
-  "RP": "orange", //"RP"
-  "IL": "red", //"IL"
+  "QB": "blueviolet", //"QB":
+  // "1B": "blue", //"1B"
+  "RB": "magenta", //"RB"
+  "WR": "green", //"WR"
+  "TE": "indianred", //"TE"
+  "D/ST": "slateblue", //"D/ST"
+  // "OF": "royalblue", //"OF"
+  // "SP": "red", //"SP"
+  // "RP": "orange", //"RP"
+  "IR": "red", //"IR"
 };
 
 // console.log("Position ID to Color mapping:", positionColor(1));

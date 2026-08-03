@@ -14,7 +14,7 @@ import draft2022 from './updated_draft_recap_2022.json';
 import draft2023 from './updated_draft_recap_2023.json';
 import draft2024 from './updated_draft_recap_2024.json';
 import draft2025 from './updated_draft_recap_2025.json';
-import draft2026 from './updated_draft_recap_2026.json';
+// import draft2026 from './updated_draft_recap_2026.json';
 
 export const allDrafts = {
   2009: draft2009,
@@ -33,5 +33,5 @@ export const allDrafts = {
   2023: draft2023,
   2024: draft2024,
   2025: draft2025,
-  2026: draft2026,
+  // 2026: draft2026,
 };

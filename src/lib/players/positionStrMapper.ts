@@ -3,10 +3,10 @@
  */
 export const POSITION_ID_TO_STR: Record<number, string> = {
   0: "C",
-  1: "SP",
-  2: "C",
-  3: "1B",
-  4: "2B",
+  1: "QB",
+  2: "RB",
+  3: "WR",
+  4: "TE",
   5: "3B",
   6: "SS",
   7: "OF",

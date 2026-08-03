@@ -11,7 +11,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { positionColor } from "@/lib/players/positionColorMapper";
-import { mlbTeamStr } from "@/lib/players/mlbTeamStrMapper";
+import { nflTeamStr } from "@/lib/players/nflTeamStrMapper";
 
 type KeeperTag = "none" | "likely" | "maybe" | "hide";
 
@@ -198,7 +198,7 @@ export default function KeepersPage() {
       { accessorKey: "fullName", header: "Player" },
       {
         accessorKey: "previousDraftRound",
-        header: "2026 Draft",
+        header: "2025 Draft",
         cell: (info) => {
           const row = info.row.original;
           return row.draftedLastYear ? `${row.previousDraftRound}` : "N/A";
@@ -215,7 +215,7 @@ export default function KeepersPage() {
       },
       {
         accessorKey: "potentialKeeperRound",
-        header: "2027 Keeper",
+        header: "2026 Keeper",
         cell: (info) => {
           const v = info.getValue<number | null>();
           return v == null ? "-" : `${v}`;
@@ -287,13 +287,13 @@ export default function KeepersPage() {
       >
         <Image
           className="dark:invert"
-          src="/baseball.svg"
-          alt="Baseball icon"
+          src="/football.svg"
+          alt="Football icon"
           width={24}
           height={24}
         />
         <h1 style={{ fontSize: 24, fontWeight: 900 }}>
-          Sotaly Tober |{" "}
+          NFL Keeper League |{" "}
           <span style={{ fontSize: 22, fontWeight: 400 }}>Keeper Calculator</span>
         </h1>
       </div>
@@ -365,7 +365,7 @@ export default function KeepersPage() {
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Acuna, Harper…"
+            placeholder="Gibbs, Cook…"
             style={control()}
           />
         </label>
@@ -484,8 +484,8 @@ export default function KeepersPage() {
                         >
                           {flexRender(cell.column.columnDef.cell, cell.getContext())}
                           <Image
-                            src={`/mlb-logos/${mlbTeamStr(cell.row.original.proTeamId ?? 0).toLowerCase()}.png`}
-                            alt="MLB team logo"
+                            src={`/nfl-logos/${nflTeamStr(cell.row.original.proTeamId ?? 0).toLowerCase()}.png`}
+                            alt="NFL team logo"
                             width={16}
                             height={16}
                             priority

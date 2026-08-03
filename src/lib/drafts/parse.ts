@@ -1,7 +1,7 @@
 import type { DraftPick } from "./types";
 import { teamNameFor } from "./teamNames";
 import { positionStr } from "../players/positionStrMapper";
-import { mlbTeamStr } from "../players/mlbTeamStrMapper";
+import { nflTeamStr } from "../players/nflTeamStrMapper";
 
 type RawPick = {
   overallPickNumber: number;
@@ -88,7 +88,7 @@ export function parseDraftPicks(year: number, raw: any): DraftPick[] {
       eligiblePositionIds: item.eligiblePositionIds,
 
       proTeamId: item.proTeamId,
-      proTeamStr: mlbTeamStr(item.proTeamId),
+      proTeamStr: nflTeamStr(item.proTeamId),
 
       isKeeper,
 

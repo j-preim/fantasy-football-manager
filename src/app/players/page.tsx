@@ -13,7 +13,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { positionColor } from "@/lib/players/positionColorMapper";
-import { mlbTeamStr } from "@/lib/players/mlbTeamStrMapper";
+import { nflTeamStr } from "@/lib/players/nflTeamStrMapper";
 
 export default function PlayersPage() {
   const [data, setData] = useState<PlayerData | null>(null);
@@ -22,7 +22,7 @@ export default function PlayersPage() {
   // Filters
   const [search, setSearch] = useState("");
   const [position, setPosition] = useState<string>("ALL");
-  const [mlbTeam, setMlbTeam] = useState<string>("ALL");
+  const [nflTeam, setNflTeam] = useState<string>("ALL");
 
   const [sorting, setSorting] = useState<SortingState>([
     { id: "ownership", desc: true },
@@ -44,7 +44,7 @@ export default function PlayersPage() {
     return data.players.filter((p) => {
       if (position !== "ALL" && String(p.defaultPositionStr) !== position) return false;
 
-      if (mlbTeam !== "ALL" && String(p.proTeamStr) !== mlbTeam) return false;
+      if (nflTeam !== "ALL" && String(p.proTeamStr) !== nflTeam) return false;
 
       if (q) {
         const hay = `${p.fullName}`.toLowerCase();
@@ -52,14 +52,14 @@ export default function PlayersPage() {
       }
       return true;
     });
-  }, [data, search, position, mlbTeam]);
+  }, [data, search, position, nflTeam]);
 
   const positionOptions = useMemo(() => {
     if (!data) return [];
     return Array.from(new Set(data.players.map((p) => p.defaultPositionStr))).sort();
   }, [data]);
 
-  const mlbTeamOptions = useMemo(() => {
+  const nflTeamOptions = useMemo(() => {
     if (!data) return [];
     return Array.from(new Set(data.players.map((p) => p.proTeamStr))).sort();
   }, [data]);
@@ -69,7 +69,7 @@ export default function PlayersPage() {
     () => [
       { accessorKey: "defaultPositionStr", header: "Pos" },
       { accessorKey: "fullName", header: "Player" },
-      { accessorKey: "proTeamStr", header: "MLB Team" },
+      { accessorKey: "proTeamStr", header: "NFL Team" },
       { accessorKey: "ownership", header: "Own %" },
     ],
     [],
@@ -138,14 +138,14 @@ export default function PlayersPage() {
         </label>
         <br />
         <label style={{ display: "grid", gap: 6 }}>
-          <span style={label()}>MLB Team</span>
+          <span style={label()}>NFL Team</span>
           <select
-            value={mlbTeam}
-            onChange={(e) => setMlbTeam(e.target.value)}
+            value={nflTeam}
+            onChange={(e) => setNflTeam(e.target.value)}
             style={control()}
           >
             <option value="ALL">All</option>
-            {mlbTeamOptions.map((t) => (
+            {nflTeamOptions.map((t) => (
               <option key={t} value={t}>
                 {t}
               </option>
@@ -159,7 +159,7 @@ export default function PlayersPage() {
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Acuna, Ohtani…"
+            placeholder="Gibbs, Cook…"
             style={control()}
           />
         </label>
@@ -269,7 +269,7 @@ export default function PlayersPage() {
                       {cell.column.id === "proTeamStr" ? (
                         <div style={{ display: "flex", gap: 4, alignItems: "center", whiteSpace: "wrap" }}>
                             <Image
-                              src={`/mlb-logos/${mlbTeamStr(cell.row.original.proTeamId ?? 0).toLowerCase()}.png`}
+                              src={`/nfl-logos/${nflTeamStr(cell.row.original.proTeamId ?? 0).toLowerCase()}.png`}
                               alt="Baseball icon"
                               width={16}
                               height={16}

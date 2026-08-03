@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const year = "2026"; // Change this to grab different historical years
+const year = "2025"; // Change this to grab different historical years
 
 const filteredPlayerList = JSON.parse(
   fs.readFileSync(new URL(`../players/filtered_player_list_${year}.json`, import.meta.url), 'utf8')

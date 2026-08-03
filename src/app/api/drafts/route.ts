@@ -8,7 +8,7 @@ export const runtime = "nodejs";
 // Put whatever years you actually have:
 const YEARS = [
   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
-  2021, 2022, 2023, 2024, 2025, 2026,
+  2021, 2022, 2023, 2024, 2025, // 2026, --- IGNORE ---
 ];
 
 export async function GET(req: Request) {
