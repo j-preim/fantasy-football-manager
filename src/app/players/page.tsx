@@ -99,14 +99,14 @@ export default function PlayersPage() {
       >
         <Image
           className="dark:invert"
-          src="/baseball.svg"
-          alt="Baseball icon"
+          src="/football.svg"
+          alt="Football icon"
           width={24}
           height={24}
         />
-        <h1 style={{ fontSize: 24, fontWeight: 900 }}>
-          Sotaly Tober |{" "}
-          <span style={{ fontSize: 22, fontWeight: 400 }}>Player Explorer</span>
+        <h1 style={{ fontSize: 20, fontWeight: 900 }}>
+          NFL Keeper League |{" "}
+          <span style={{ fontSize: 18, fontWeight: 400 }}>Player Explorer</span>
         </h1>
       </div>
 
