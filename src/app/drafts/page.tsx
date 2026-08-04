@@ -74,7 +74,7 @@ export default function DraftsPage() {
       {
         accessorKey: "isKeeper",
         header: "Keeper",
-        cell: (info) => (info.getValue<boolean>() ? "✅" : "❌"),
+        cell: (info) => (info.getValue<boolean>() ? "✅" : "✖️"),
       },
     ],
     [],
