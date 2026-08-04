@@ -211,7 +211,7 @@ export default function DraftsPage() {
             paddingBottom: 2,
           }}
         >
-          Showing <b>{filtered.length}</b> picks
+          {/* Showing <b>{filtered.length}</b> picks */}
         </div>
       </section>
 
