@@ -16,6 +16,8 @@ type RawPlayer = {
   meta?: Record<string, unknown>;
 };
 
+const ALLOWED_POSITIONS = new Set(["QB", "RB", "WR", "TE", "D/ST"]);
+
 function isRawPlayer(x: any): x is RawPlayer {
   return (
     x &&
@@ -62,6 +64,7 @@ export function parsePlayers(raw: any): Player[] {
   }
 
   // Ensure stable ordering
+  players.filter((player) => ALLOWED_POSITIONS.has(player.defaultPositionStr));
   players.sort((a, b) => a.ownership - b.ownership);
   return players;
 }
