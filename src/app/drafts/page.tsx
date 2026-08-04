@@ -74,7 +74,7 @@ export default function DraftsPage() {
       {
         accessorKey: "isKeeper",
         header: "Keeper",
-        cell: (info) => (info.getValue<boolean>() ? "✅" : ""),
+        cell: (info) => (info.getValue<boolean>() ? "✅" : "❌"),
       },
     ],
     [],
@@ -224,7 +224,7 @@ export default function DraftsPage() {
         }}
       >
         <table
-          style={{ width: "100%", borderCollapse: "collapse", minWidth: 300, tableLayout: "fixed" }}
+          style={{ width: "100%", borderCollapse: "collapse", minWidth: 300 }}
         >
           <thead>
             {table.getHeaderGroups().map((hg) => (
