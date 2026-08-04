@@ -221,6 +221,7 @@ export default function DraftsPage() {
           border: "1px solid #eee",
           borderRadius: 8,
           overflow: "auto",
+          scrollbarGutter: "stable",
         }}
       >
         <table
