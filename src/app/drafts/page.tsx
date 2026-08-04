@@ -221,11 +221,10 @@ export default function DraftsPage() {
           border: "1px solid #eee",
           borderRadius: 8,
           overflow: "auto",
-          scrollbarGutter: "stable",
         }}
       >
         <table
-          style={{ width: "100%", borderCollapse: "collapse", minWidth: 300 }}
+          style={{ width: "100%", borderCollapse: "collapse", minWidth: 300, tableLayout: "fixed" }}
         >
           <thead>
             {table.getHeaderGroups().map((hg) => (
