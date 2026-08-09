@@ -17,6 +17,23 @@ type EspnPlayer = {
   };
 };
 
+type EspnPlayerPoolEntry = {
+  player?: unknown;
+};
+
+/**
+ * ESPN's kona player endpoint returns player-pool entries whose actual player
+ * record is nested under `player`. Some ESPN responses return the player
+ * record directly, so accept both shapes and expose one consistent object to
+ * the rest of the app.
+ */
+export function unwrapEspnPlayer(raw: unknown): unknown {
+  if (!raw || typeof raw !== "object") return raw;
+
+  const entry = raw as EspnPlayerPoolEntry;
+  return entry.player && typeof entry.player === "object" ? entry.player : raw;
+}
+
 function positiveNumber(value: unknown): number | null {
   return typeof value === "number" && Number.isFinite(value) && value > 0
     ? value
@@ -24,7 +41,7 @@ function positiveNumber(value: unknown): number | null {
 }
 
 export function getEspnAnalysis(raw: unknown): EspnAnalysis {
-  const player = raw as EspnPlayer;
+  const player = unwrapEspnPlayer(raw) as EspnPlayer;
 
   return {
     espnAdp: positiveNumber(player.ownership?.averageDraftPosition),
@@ -56,14 +73,14 @@ export async function fetchEspnPlayerPool(season: number): Promise<unknown[]> {
   }
 
   const payload: unknown = await response.json();
-  if (Array.isArray(payload)) return payload;
+  if (Array.isArray(payload)) return payload.map(unwrapEspnPlayer);
   if (
     payload &&
     typeof payload === "object" &&
     "players" in payload &&
     Array.isArray(payload.players)
   ) {
-    return payload.players;
+    return payload.players.map(unwrapEspnPlayer);
   }
 
   throw new Error("ESPN player response did not contain a player array");

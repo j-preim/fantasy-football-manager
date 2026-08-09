@@ -16,24 +16,18 @@ export async function GET() {
   try {
     const seasonStr = mustGetEnv("ESPN_SEASON");
     const season = Number(seasonStr);
-    const players = [];
-
-      const raw = await fetchEspnPlayerPool(season);
-      const espnById = new Map(
-        raw.flatMap((item) => {
-          const id = item && typeof item === "object" && "id" in item ? item.id : null;
-          return typeof id === "number" ? [[id, getEspnAnalysis(item)] as const] : [];
-        }),
-      );
-      const playersRaw = parsePlayers(raw).map((player) => ({
-        ...player,
-        analysis:
-          getPlayerAnalysis(player.fullName, espnById.get(player.playerId)) ?? undefined,
-      }));
-
-      if (playersRaw.length) {
-        players.push(...playersRaw);
-      }
+    const raw = await fetchEspnPlayerPool(season);
+    const espnById = new Map(
+      raw.flatMap((item) => {
+        const id = item && typeof item === "object" && "id" in item ? item.id : null;
+        return typeof id === "number" ? [[id, getEspnAnalysis(item)] as const] : [];
+      }),
+    );
+    const players = parsePlayers(raw).map((player) => ({
+      ...player,
+      analysis:
+        getPlayerAnalysis(player.fullName, espnById.get(player.playerId)) ?? undefined,
+    }));
 
     const payload: PlayerData = {
       players,
