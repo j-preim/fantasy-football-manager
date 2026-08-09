@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import type { Player, PlayerData } from "@/lib/players/types";
 import {
-  ColumnDef,
   flexRender,
   getCoreRowModel,
   getSortedRowModel,
@@ -13,6 +12,7 @@ import {
 } from "@tanstack/react-table";
 import { positionColor } from "@/lib/players/positionColorMapper";
 import { nflTeamStr } from "@/lib/players/nflTeamStrMapper";
+import { playerColumns } from "./columns";
 
 export default function PlayersPage() {
   const [data, setData] = useState<PlayerData | null>(null);
@@ -64,73 +64,9 @@ export default function PlayersPage() {
   }, [data]);
 
 
-  const columns = useMemo<ColumnDef<Player>[]>(
-    () => [
-      { accessorKey: "defaultPositionStr", header: "Pos" },
-      { accessorKey: "fullName", header: "Player" },
-      { accessorKey: "proTeamStr", header: "NFL Team" },
-      { accessorKey: "ownership", header: "Own %" },
-      {
-        id: "adp",
-        accessorFn: (row) => row.analysis?.adp,
-        sortUndefined: "last",
-        header: "FFToday ADP",
-        cell: (info) => {
-          const value = info.getValue<number | undefined>();
-          return value == null ? "—" : value.toFixed(1);
-        },
-      },
-      {
-        id: "espnAdp",
-        accessorFn: (row) => row.analysis?.espnAdp,
-        sortUndefined: "last",
-        header: "ESPN ADP",
-        cell: (info) => {
-          const value = info.getValue<number | undefined>();
-          return value == null ? "—" : value.toFixed(1);
-        },
-      },
-      {
-        id: "overallRank",
-        accessorFn: (row) => row.analysis?.overallRank,
-        sortUndefined: "last",
-        header: "Harris Rank",
-        cell: (info) => {
-          const row = info.row.original;
-          return row.analysis?.overallRank == null
-            ? "—"
-            : `#${row.analysis.overallRank}`;
-        },
-      },
-      {
-        id: "espnOverallRank",
-        accessorFn: (row) => row.analysis?.espnOverallRank,
-        sortUndefined: "last",
-        header: "ESPN PPR Rank",
-        cell: (info) => {
-          const value = info.getValue<number | undefined>();
-          return value == null ? "—" : `#${value}`;
-        },
-      },
-      {
-        id: "positionRank",
-        accessorFn: (row) => row.analysis?.positionRank,
-        sortUndefined: "last",
-        header: "Pos Rank",
-        cell: (info) => {
-          const row = info.row.original;
-          return row.analysis?.positionRank != null
-            ? `${row.defaultPositionStr}${row.analysis.positionRank}`
-            : "—";
-        },
-      },
-    ],
-    [],
-  );
-
   const table = useReactTable({
     data: filtered,
-    columns,
+    columns: playerColumns,
     state: { sorting },
     onSortingChange: setSorting,
     getCoreRowModel: getCoreRowModel(),
