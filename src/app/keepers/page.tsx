@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   ColumnDef,
   flexRender,
@@ -12,7 +12,10 @@ import {
 } from "@tanstack/react-table";
 import { positionColor } from "@/lib/players/positionColorMapper";
 import { nflTeamStr } from "@/lib/players/nflTeamStrMapper";
-import type { KeeperValue } from "@/lib/analysis/types";
+import type {
+  KeeperValue,
+  KeeperValueLabel,
+} from "@/lib/analysis/types";
 
 type KeeperTag = "none" | "likely" | "maybe" | "hide";
 
@@ -182,19 +185,16 @@ export default function KeepersPage() {
     });
   }, [playersWithTags, teamId, position, tagFilter, search]);
 
-  const setPlayerTag = useCallback(
-    (player: KeeperPlayer, tag: KeeperTag) => {
-      if (!data) return;
+  function setPlayerTag(player: KeeperPlayer, tag: KeeperTag) {
+    if (!data) return;
 
-      saveKeeperTag(data.season, player.teamId, player.playerId, tag);
+    saveKeeperTag(data.season, player.teamId, player.playerId, tag);
 
-      setTagMap((prev) => ({
-        ...prev,
-        [keeperStorageKey(data.season, player.teamId, player.playerId)]: tag,
-      }));
-    },
-    [data],
-  );
+    setTagMap((prev) => ({
+      ...prev,
+      [keeperStorageKey(data.season, player.teamId, player.playerId)]: tag,
+    }));
+  }
 
   const columns = useMemo<ColumnDef<KeeperPlayerWithTag>[]>(
     () => [
@@ -260,12 +260,61 @@ export default function KeepersPage() {
       },
       {
         id: "keeperRoundValue",
-        accessorFn: (row) => row.analysis?.keeperRoundValue ?? null,
-        header: "Value",
+        accessorFn: (row) => row.analysis?.keeperRoundValue ?? undefined,
+        sortUndefined: "last",
+        header: "FFToday Value",
         cell: (info) => {
           const analysis = info.row.original.analysis;
           return analysis?.keeperRoundValue != null && analysis.valueLabel
-            ? <ValueBadge analysis={analysis} />
+            ? (
+                <ValueBadge
+                  source="FFToday ADP"
+                  impliedRound={analysis.adpRound}
+                  roundValue={analysis.keeperRoundValue}
+                  valueLabel={analysis.valueLabel}
+                />
+              )
+            : "—";
+        },
+      },
+      {
+        id: "harrisKeeperRoundValue",
+        accessorFn: (row) =>
+          row.analysis?.harrisKeeperRoundValue ?? undefined,
+        sortUndefined: "last",
+        header: "Harris Value",
+        cell: (info) => {
+          const analysis = info.row.original.analysis;
+          return analysis?.harrisKeeperRoundValue != null &&
+            analysis.harrisValueLabel
+            ? (
+                <ValueBadge
+                  source="Harris rank"
+                  impliedRound={impliedRound(analysis.overallRank)}
+                  roundValue={analysis.harrisKeeperRoundValue}
+                  valueLabel={analysis.harrisValueLabel}
+                />
+              )
+            : "—";
+        },
+      },
+      {
+        id: "espnKeeperRoundValue",
+        accessorFn: (row) => row.analysis?.espnKeeperRoundValue ?? undefined,
+        sortUndefined: "last",
+        header: "ESPN Value",
+        cell: (info) => {
+          const analysis = info.row.original.analysis;
+          return analysis?.espnKeeperRoundValue != null &&
+            analysis.espnValueLabel
+            ? (
+                <ValueBadge
+                  source="ESPN ADP"
+                  impliedRound={impliedRound(analysis.espnAdp)}
+                  roundValue={analysis.espnKeeperRoundValue}
+                  valueLabel={analysis.espnValueLabel}
+                />
+              )
             : "—";
         },
       },
@@ -308,10 +357,9 @@ export default function KeepersPage() {
           tagRank(rowA.original.keeperTag) - tagRank(rowB.original.keeperTag),
       },
     ],
-    [setPlayerTag],
+    [data],
   );
 
-  // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
     data: filtered,
     columns,
@@ -359,7 +407,8 @@ export default function KeepersPage() {
         <a href="https://fantasy.espn.com/football/players/projections" target="_blank" rel="noreferrer">
           ESPN Fantasy
         </a>{" "}
-        · 10-team round values · ranks updated{" "}
+        · values from FFToday ADP, Harris rank, and ESPN ADP · 10-team
+        round values · ranks updated{" "}
         {allPlayers.find((player) => player.analysis)?.analysis?.rankingsUpdatedAt ?? "—"}
       </p>
 
@@ -583,25 +632,35 @@ function formatDecimal(value: number | null): string {
   return value == null ? "—" : value.toFixed(1);
 }
 
-function ValueBadge({ analysis }: { analysis: KeeperValue }) {
-  if (
-    analysis.adpRound == null ||
-    analysis.keeperRoundValue == null ||
-    analysis.valueLabel == null
-  ) return null;
+function impliedRound(overallRank: number | null): number | null {
+  return overallRank == null ? null : Math.ceil(overallRank / 10);
+}
 
-  const positive = analysis.keeperRoundValue > 0;
-  const neutral = analysis.keeperRoundValue === 0;
+function ValueBadge({
+  source,
+  impliedRound,
+  roundValue,
+  valueLabel,
+}: {
+  source: string;
+  impliedRound: number | null;
+  roundValue: number;
+  valueLabel: Exclude<KeeperValueLabel, null>;
+}) {
+  if (impliedRound == null) return null;
+
+  const positive = roundValue > 0;
+  const neutral = roundValue === 0;
   const background = positive ? "#dcfce7" : neutral ? "#e5e7eb" : "#fee2e2";
   const color = positive ? "#166534" : neutral ? "#374151" : "#991b1b";
-  const rounds = Math.abs(analysis.keeperRoundValue);
+  const rounds = Math.abs(roundValue);
   const detail = neutral
-    ? "at ADP"
-    : `${rounds} rd ${positive ? "ahead" : "behind"}`;
+    ? "at market"
+    : `${rounds} rd ${positive ? "later" : "earlier"}`;
 
   return (
     <span
-      title={`ADP implies round ${analysis.adpRound}; keeper cost is round ${analysis.adpRound - analysis.keeperRoundValue}`}
+      title={`${source} implies round ${impliedRound}; keeper cost is round ${impliedRound + roundValue}`}
       style={{
         display: "inline-flex",
         padding: "3px 7px",
@@ -612,7 +671,7 @@ function ValueBadge({ analysis }: { analysis: KeeperValue }) {
         whiteSpace: "nowrap",
       }}
     >
-      {analysis.valueLabel} · {detail}
+      {valueLabel} · {detail}
     </span>
   );
 }

@@ -1,3 +1,7 @@
+import type { KeeperValueLabel } from "./keeperValue";
+
+export type { KeeperValueLabel } from "./keeperValue";
+
 export type PlayerAnalysis = {
   adp: number | null;
   adpRound: number | null;
@@ -18,5 +22,9 @@ export type PlayerAnalysis = {
 
 export type KeeperValue = PlayerAnalysis & {
   keeperRoundValue: number | null;
-  valueLabel: "Elite value" | "Strong value" | "Value" | "Fair" | "Reach" | null;
+  valueLabel: KeeperValueLabel;
+  harrisKeeperRoundValue: number | null;
+  harrisValueLabel: KeeperValueLabel;
+  espnKeeperRoundValue: number | null;
+  espnValueLabel: KeeperValueLabel;
 };

@@ -2,6 +2,7 @@ import adpRankings from "@/data/half-ppr-adp-2026.json";
 import harrisRankings from "@/data/harris-half-ppr-2026.json";
 import type { KeeperValue, PlayerAnalysis } from "./types";
 import type { EspnAnalysis } from "./espn";
+import { calculateKeeperValue, getImpliedRound } from "./keeperValue";
 
 const LEAGUE_SIZE = 10;
 const SUFFIXES = new Set(["jr", "sr", "ii", "iii", "iv", "v"]);
@@ -64,20 +65,23 @@ export function getKeeperValue(
   const analysis = getPlayerAnalysis(fullName, espn);
   if (!analysis || keeperRound == null) return null;
 
-  const keeperRoundValue =
-    analysis.adpRound == null ? null : keeperRound - analysis.adpRound;
-  const valueLabel =
-    keeperRoundValue == null
-      ? null
-      : keeperRoundValue >= 4
-      ? "Elite value"
-      : keeperRoundValue >= 2
-        ? "Strong value"
-        : keeperRoundValue === 1
-          ? "Value"
-          : keeperRoundValue === 0
-            ? "Fair"
-            : "Reach";
+  const ffTodayValue = calculateKeeperValue(analysis.adpRound, keeperRound);
+  const harrisValue = calculateKeeperValue(
+    getImpliedRound(analysis.overallRank, LEAGUE_SIZE),
+    keeperRound,
+  );
+  const espnValue = calculateKeeperValue(
+    getImpliedRound(analysis.espnAdp, LEAGUE_SIZE),
+    keeperRound,
+  );
 
-  return { ...analysis, keeperRoundValue, valueLabel };
+  return {
+    ...analysis,
+    keeperRoundValue: ffTodayValue.roundValue,
+    valueLabel: ffTodayValue.valueLabel,
+    harrisKeeperRoundValue: harrisValue.roundValue,
+    harrisValueLabel: harrisValue.valueLabel,
+    espnKeeperRoundValue: espnValue.roundValue,
+    espnValueLabel: espnValue.valueLabel,
+  };
 }
