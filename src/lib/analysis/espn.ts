@@ -49,6 +49,39 @@ export function getEspnAnalysis(raw: unknown): EspnAnalysis {
   };
 }
 
+/**
+ * Build ESPN analysis from the PPR-sorted player feed.
+ *
+ * ESPN's current draft-rank field contains gaps that are not present in its
+ * published PPR rankings (for example, it reports Josh Allen as 36 and Kyren
+ * Williams as 69 even though they are 36 and 37 in the same sorted feed).
+ * The feed order matches ESPN's published Top 300, so derive the displayed
+ * overall rank from that order while counting every ranked position.
+ */
+export function buildEspnAnalysisById(
+  rawPlayers: readonly unknown[],
+): Map<number, EspnAnalysis> {
+  const analysisById = new Map<number, EspnAnalysis>();
+  let overallRank = 0;
+
+  for (const raw of rawPlayers) {
+    const player = unwrapEspnPlayer(raw) as EspnPlayer;
+    const reportedRank = positiveNumber(
+      player.draftRanksByRankType?.PPR?.rank,
+    );
+    const normalizedRank = reportedRank == null ? null : ++overallRank;
+
+    if (typeof player.id !== "number") continue;
+
+    analysisById.set(player.id, {
+      espnAdp: positiveNumber(player.ownership?.averageDraftPosition),
+      espnOverallRank: normalizedRank,
+    });
+  }
+
+  return analysisById;
+}
+
 export async function fetchEspnPlayerPool(season: number): Promise<unknown[]> {
   const url = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${season}/segments/0/leaguedefaults/3?view=kona_player_info`;
   const response = await fetch(url, {

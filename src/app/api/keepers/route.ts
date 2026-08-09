@@ -13,8 +13,8 @@ import { getPotentialKeeperRound } from "@/lib/rosters/keepers";
 import { getKeeperValue } from "@/lib/analysis/rankings";
 import type { KeeperValue } from "@/lib/analysis/types";
 import {
+  buildEspnAnalysisById,
   fetchEspnPlayerPool,
-  getEspnAnalysis,
   type EspnAnalysis,
 } from "@/lib/analysis/espn";
 
@@ -225,12 +225,7 @@ export async function GET() {
     ]);
 
     const draftLookup = buildDraftLookup(draftPicks);
-    const espnAnalysisById = new Map(
-      espnPlayers.flatMap((item) => {
-        const id = item && typeof item === "object" && "id" in item ? item.id : null;
-        return typeof id === "number" ? [[id, getEspnAnalysis(item)] as const] : [];
-      }),
-    );
+    const espnAnalysisById = buildEspnAnalysisById(espnPlayers);
     const response = buildKeeperResponse(
       espnTeams,
       draftLookup,

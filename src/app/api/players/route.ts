@@ -2,7 +2,10 @@ import { NextResponse } from "next/server";
 import { parsePlayers } from "@/lib/players/parse";
 import type { PlayerData } from "@/lib/players/types";
 import { getPlayerAnalysis } from "@/lib/analysis/rankings";
-import { fetchEspnPlayerPool, getEspnAnalysis } from "@/lib/analysis/espn";
+import {
+  buildEspnAnalysisById,
+  fetchEspnPlayerPool,
+} from "@/lib/analysis/espn";
 
 export const runtime = "nodejs";
 
@@ -17,12 +20,7 @@ export async function GET() {
     const seasonStr = mustGetEnv("ESPN_SEASON");
     const season = Number(seasonStr);
     const raw = await fetchEspnPlayerPool(season);
-    const espnById = new Map(
-      raw.flatMap((item) => {
-        const id = item && typeof item === "object" && "id" in item ? item.id : null;
-        return typeof id === "number" ? [[id, getEspnAnalysis(item)] as const] : [];
-      }),
-    );
+    const espnById = buildEspnAnalysisById(raw);
     const players = parsePlayers(raw).map((player) => ({
       ...player,
       analysis:
