@@ -72,27 +72,27 @@ export default function PlayersPage() {
       { accessorKey: "ownership", header: "Own %" },
       {
         id: "adp",
-        accessorFn: (row) => row.analysis?.adp ?? null,
+        accessorFn: (row) => row.analysis?.adp,
         sortUndefined: "last",
         header: "FFToday ADP",
         cell: (info) => {
-          const value = info.getValue<number | null>();
+          const value = info.getValue<number | undefined>();
           return value == null ? "—" : value.toFixed(1);
         },
       },
       {
         id: "espnAdp",
-        accessorFn: (row) => row.analysis?.espnAdp ?? null,
+        accessorFn: (row) => row.analysis?.espnAdp,
         sortUndefined: "last",
         header: "ESPN ADP",
         cell: (info) => {
-          const value = info.getValue<number | null>();
+          const value = info.getValue<number | undefined>();
           return value == null ? "—" : value.toFixed(1);
         },
       },
       {
         id: "overallRank",
-        accessorFn: (row) => row.analysis?.overallRank ?? null,
+        accessorFn: (row) => row.analysis?.overallRank,
         sortUndefined: "last",
         header: "Harris Rank",
         cell: (info) => {
@@ -104,17 +104,17 @@ export default function PlayersPage() {
       },
       {
         id: "espnOverallRank",
-        accessorFn: (row) => row.analysis?.espnOverallRank ?? null,
+        accessorFn: (row) => row.analysis?.espnOverallRank,
         sortUndefined: "last",
         header: "ESPN PPR Rank",
         cell: (info) => {
-          const value = info.getValue<number | null>();
+          const value = info.getValue<number | undefined>();
           return value == null ? "—" : `#${value}`;
         },
       },
       {
         id: "positionRank",
-        accessorFn: (row) => row.analysis?.positionRank ?? null,
+        accessorFn: (row) => row.analysis?.positionRank,
         sortUndefined: "last",
         header: "Pos Rank",
         cell: (info) => {
