@@ -12,6 +12,7 @@ import {
 } from "@tanstack/react-table";
 import { positionColor } from "@/lib/players/positionColorMapper";
 import { nflTeamStr } from "@/lib/players/nflTeamStrMapper";
+import type { KeeperValue } from "@/lib/analysis/types";
 
 type KeeperTag = "none" | "likely" | "maybe" | "hide";
 
@@ -33,6 +34,7 @@ type KeeperPlayer = {
   previousOverallPick: number | null;
   draftedLastYear: boolean;
   potentialKeeperRound: number | null;
+  analysis: KeeperValue | null;
 };
 
 type KeeperTeam = {
@@ -221,6 +223,49 @@ export default function KeepersPage() {
           return v == null ? "-" : `${v}`;
         },
       },
+      {
+        id: "adp",
+        accessorFn: (row) => row.analysis?.adp ?? null,
+        header: "FFToday ADP",
+        cell: (info) => formatDecimal(info.getValue<number | null>()),
+      },
+      {
+        id: "espnAdp",
+        accessorFn: (row) => row.analysis?.espnAdp ?? null,
+        header: "ESPN ADP",
+        cell: (info) => formatDecimal(info.getValue<number | null>()),
+      },
+      {
+        id: "rank",
+        accessorFn: (row) => row.analysis?.overallRank ?? null,
+        header: "Harris Rank",
+        cell: (info) => {
+          const row = info.row.original;
+          return row.analysis?.overallRank != null && row.analysis.positionRank != null
+            ? `#${row.analysis.overallRank} (${row.defaultPosition}${row.analysis.positionRank})`
+            : "—";
+        },
+      },
+      {
+        id: "espnRank",
+        accessorFn: (row) => row.analysis?.espnOverallRank ?? null,
+        header: "ESPN PPR Rank",
+        cell: (info) => {
+          const value = info.getValue<number | null>();
+          return value == null ? "—" : `#${value}`;
+        },
+      },
+      {
+        id: "keeperRoundValue",
+        accessorFn: (row) => row.analysis?.keeperRoundValue ?? null,
+        header: "Value",
+        cell: (info) => {
+          const analysis = info.row.original.analysis;
+          return analysis?.keeperRoundValue != null && analysis.valueLabel
+            ? <ValueBadge analysis={analysis} />
+            : "—";
+        },
+      },
     {
         accessorKey: "keeperTag",
         header: "Tag",
@@ -297,6 +342,22 @@ export default function KeepersPage() {
           <span style={{ fontSize: 22, fontWeight: 400 }}>Keeper Calculator</span>
         </h1>
       </div>
+      <p style={{ margin: "4px 0 0 34px", fontSize: 12, opacity: 0.65 }}>
+        2026 half-PPR · ranks by{" "}
+        <a href="https://harrishalfppr.com/160" target="_blank" rel="noreferrer">
+          Harris Half PPR
+        </a>{" "}
+        · ADP by{" "}
+        <a href="https://www.fftoday.com/rankings/26-adp-half-ppr.html" target="_blank" rel="noreferrer">
+          FFToday
+        </a>{" "}
+        · ESPN PPR rank and ADP by{" "}
+        <a href="https://fantasy.espn.com/football/players/projections" target="_blank" rel="noreferrer">
+          ESPN Fantasy
+        </a>{" "}
+        · 10-team round values · ranks updated{" "}
+        {allPlayers.find((player) => player.analysis)?.analysis?.rankingsUpdatedAt ?? "—"}
+      </p>
 
       {/* Filters */}
       <section
@@ -512,6 +573,44 @@ function tagRank(tag: KeeperTag): number {
   if (tag === "likely") return 0;
   if (tag === "maybe") return 1;
   return 2;
+}
+
+function formatDecimal(value: number | null): string {
+  return value == null ? "—" : value.toFixed(1);
+}
+
+function ValueBadge({ analysis }: { analysis: KeeperValue }) {
+  if (
+    analysis.adpRound == null ||
+    analysis.keeperRoundValue == null ||
+    analysis.valueLabel == null
+  ) return null;
+
+  const positive = analysis.keeperRoundValue > 0;
+  const neutral = analysis.keeperRoundValue === 0;
+  const background = positive ? "#dcfce7" : neutral ? "#e5e7eb" : "#fee2e2";
+  const color = positive ? "#166534" : neutral ? "#374151" : "#991b1b";
+  const rounds = Math.abs(analysis.keeperRoundValue);
+  const detail = neutral
+    ? "at ADP"
+    : `${rounds} rd ${positive ? "ahead" : "behind"}`;
+
+  return (
+    <span
+      title={`ADP implies round ${analysis.adpRound}; keeper cost is round ${analysis.adpRound - analysis.keeperRoundValue}`}
+      style={{
+        display: "inline-flex",
+        padding: "3px 7px",
+        borderRadius: 999,
+        background,
+        color,
+        fontWeight: 800,
+        whiteSpace: "nowrap",
+      }}
+    >
+      {analysis.valueLabel} · {detail}
+    </span>
+  );
 }
 
   function tagButton(

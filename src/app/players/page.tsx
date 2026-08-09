@@ -2,7 +2,6 @@
 import Image from "next/image";
 
 import { useEffect, useMemo, useState } from "react";
-import Link from "next/link";
 import type { Player, PlayerData } from "@/lib/players/types";
 import {
   ColumnDef,
@@ -71,6 +70,55 @@ export default function PlayersPage() {
       { accessorKey: "fullName", header: "Player" },
       { accessorKey: "proTeamStr", header: "NFL Team" },
       { accessorKey: "ownership", header: "Own %" },
+      {
+        id: "adp",
+        accessorFn: (row) => row.analysis?.adp ?? null,
+        header: "FFToday ADP",
+        cell: (info) => {
+          const value = info.getValue<number | null>();
+          return value == null ? "—" : value.toFixed(1);
+        },
+      },
+      {
+        id: "espnAdp",
+        accessorFn: (row) => row.analysis?.espnAdp ?? null,
+        header: "ESPN ADP",
+        cell: (info) => {
+          const value = info.getValue<number | null>();
+          return value == null ? "—" : value.toFixed(1);
+        },
+      },
+      {
+        id: "overallRank",
+        accessorFn: (row) => row.analysis?.overallRank ?? null,
+        header: "Harris Rank",
+        cell: (info) => {
+          const row = info.row.original;
+          return row.analysis?.overallRank == null
+            ? "—"
+            : `#${row.analysis.overallRank}`;
+        },
+      },
+      {
+        id: "espnOverallRank",
+        accessorFn: (row) => row.analysis?.espnOverallRank ?? null,
+        header: "ESPN PPR Rank",
+        cell: (info) => {
+          const value = info.getValue<number | null>();
+          return value == null ? "—" : `#${value}`;
+        },
+      },
+      {
+        id: "positionRank",
+        accessorFn: (row) => row.analysis?.positionRank ?? null,
+        header: "Pos Rank",
+        cell: (info) => {
+          const row = info.row.original;
+          return row.analysis?.positionRank != null
+            ? `${row.defaultPositionStr}${row.analysis.positionRank}`
+            : "—";
+        },
+      },
     ],
     [],
   );
@@ -109,6 +157,23 @@ export default function PlayersPage() {
           <span style={{ fontSize: 18, fontWeight: 400 }}>Player Explorer</span>
         </h1>
       </div>
+      <p style={{ margin: "4px 0 0 34px", fontSize: 12, opacity: 0.65 }}>
+        2026 half-PPR · ranks by{" "}
+        <a href="https://harrishalfppr.com/160" target="_blank" rel="noreferrer">
+          Harris Half PPR
+        </a>{" "}
+        · ADP by{" "}
+        <a href="https://www.fftoday.com/rankings/26-adp-half-ppr.html" target="_blank" rel="noreferrer">
+          FFToday
+        </a>{" "}
+        · ESPN PPR rank and ADP by{" "}
+        <a href="https://fantasy.espn.com/football/players/projections" target="_blank" rel="noreferrer">
+          ESPN Fantasy
+        </a>{" "}
+        ·{" "}
+        {data.players.filter((player) => player.analysis).length} ranked players · updated{" "}
+        {data.players.find((player) => player.analysis)?.analysis?.rankingsUpdatedAt ?? "—"}
+      </p>
 
       {/* Filters */}
       <section

@@ -3,7 +3,7 @@ import { positionStr } from "./positionStrMapper";
 import { nflTeamStr } from "./nflTeamStrMapper";
 
 type RawPlayer = {
-  playerId: number;
+  id: number;
   fullName: string;
   firstName: string;
   lastName: string;
@@ -12,30 +12,31 @@ type RawPlayer = {
   eligibleSlots?: number[];
   proTeamId: number;
   proTeamStr?: string;
-  ownership: { percentOwned: number };
+  ownership?: { percentOwned?: number };
   meta?: Record<string, unknown>;
 };
 
 const ALLOWED_POSITIONS = new Set(["QB", "RB", "WR", "TE", "D/ST"]);
 
-function isRawPlayer(x: any): x is RawPlayer {
+function isRawPlayer(x: unknown): x is RawPlayer {
+  if (!x || typeof x !== "object") return false;
+  const player = x as Record<string, unknown>;
+
   return (
-    x &&
-    typeof x === "object" &&
-    typeof x.id === "number" &&
-    typeof x.fullName === "string" &&
-    typeof x.defaultPositionId === "number" &&
-    typeof x.proTeamId === "number"
+    typeof player.id === "number" &&
+    typeof player.fullName === "string" &&
+    typeof player.defaultPositionId === "number" &&
+    typeof player.proTeamId === "number"
   );
 }
 
-export function extractPlayersArray(raw: any): any[] {
+export function extractPlayersArray(raw: unknown): unknown[] {
   if (Array.isArray(raw)) return raw;
 
   return [];
 }
 
-export function parsePlayers(raw: any): Player[] {
+export function parsePlayers(raw: unknown): Player[] {
   const arr = extractPlayersArray(raw);
 
   const players: Player[] = [];
@@ -52,7 +53,7 @@ export function parsePlayers(raw: any): Player[] {
 
     if (ownershipPct > 0) {
       players.push({
-        playerId: item.playerId,
+        playerId: item.id,
 
         fullName: item.fullName,
         firstName: item.firstName,

@@ -10,6 +10,13 @@ import { nflTeamStr } from "@/lib/players/nflTeamStrMapper";
 import { positionStr } from "@/lib/players/positionStrMapper";
 import { lineupSlotStr } from "@/lib/rosters/lineupSlotStrMapper";
 import { getPotentialKeeperRound } from "@/lib/rosters/keepers";
+import { getKeeperValue } from "@/lib/analysis/rankings";
+import type { KeeperValue } from "@/lib/analysis/types";
+import {
+  fetchEspnPlayerPool,
+  getEspnAnalysis,
+  type EspnAnalysis,
+} from "@/lib/analysis/espn";
 
 type EspnRosterEntry = {
   acquisitionType?: string | null;
@@ -67,6 +74,7 @@ type KeeperApiPlayer = {
   previousOverallPick: number | null;
   draftedLastYear: boolean;
   potentialKeeperRound: number | null;
+  analysis: KeeperValue | null;
 };
 
 type KeeperApiResponse = {
@@ -138,7 +146,8 @@ async function fetchEspnTeams(): Promise<EspnTeam[]> {
 
 function buildKeeperResponse(
   espnTeams: EspnTeam[],
-  draftLookup: Record<number, DraftPick>
+  draftLookup: Record<number, DraftPick>,
+  espnAnalysisById: Map<number, EspnAnalysis>,
 ): KeeperApiResponse {
   const teams = espnTeams
     .map((team) => {
@@ -174,6 +183,11 @@ function buildKeeperResponse(
             previousOverallPick,
             draftedLastYear,
             potentialKeeperRound,
+            analysis: getKeeperValue(
+              player.fullName ?? "",
+              potentialKeeperRound,
+              espnAnalysisById.get(playerId),
+            ),
           } satisfies KeeperApiPlayer;
         })
         .filter((p): p is KeeperApiPlayer => p !== null)
@@ -203,13 +217,25 @@ function buildKeeperResponse(
 
 export async function GET() {
   try {
-    const [espnTeams, draftPicks] = await Promise.all([
+    const season = Number(mustGetEnv("ESPN_SEASON"));
+    const [espnTeams, draftPicks, espnPlayers] = await Promise.all([
       fetchEspnTeams(),
       loadDraftPicks(),
+      fetchEspnPlayerPool(season),
     ]);
 
     const draftLookup = buildDraftLookup(draftPicks);
-    const response = buildKeeperResponse(espnTeams, draftLookup);
+    const espnAnalysisById = new Map(
+      espnPlayers.flatMap((item) => {
+        const id = item && typeof item === "object" && "id" in item ? item.id : null;
+        return typeof id === "number" ? [[id, getEspnAnalysis(item)] as const] : [];
+      }),
+    );
+    const response = buildKeeperResponse(
+      espnTeams,
+      draftLookup,
+      espnAnalysisById,
+    );
 
     return Response.json(response);
   } catch (error) {

@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { parsePlayers } from "@/lib/players/parse";
 import type { PlayerData } from "@/lib/players/types";
+import { getPlayerAnalysis } from "@/lib/analysis/rankings";
+import { fetchEspnPlayerPool, getEspnAnalysis } from "@/lib/analysis/espn";
 
 export const runtime = "nodejs";
 
@@ -16,30 +18,18 @@ export async function GET() {
     const season = Number(seasonStr);
     const players = [];
 
-    const url = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${season}/players?view=players_wl`;
-
-    const r = await fetch(url, {
-      headers: {
-        "X-Fantasy-Filter": `{"filterActive":{"value":true}}`
-      },
-      // ✅ Cache on Vercel/Next for 60s (reduces ESPN calls massively)
-      next: { revalidate: 60 },
-    });
-
-    if (!r.ok) {
-      const text = await r.text();
-      return NextResponse.json(
-        {
-          error: "ESPN request failed",
-          status: r.status,
-          body: text.slice(0, 500),
-        },
-        { status: 502 },
+      const raw = await fetchEspnPlayerPool(season);
+      const espnById = new Map(
+        raw.flatMap((item) => {
+          const id = item && typeof item === "object" && "id" in item ? item.id : null;
+          return typeof id === "number" ? [[id, getEspnAnalysis(item)] as const] : [];
+        }),
       );
-    }
-
-      const raw = await r.json();
-      const playersRaw = parsePlayers(raw);
+      const playersRaw = parsePlayers(raw).map((player) => ({
+        ...player,
+        analysis:
+          getPlayerAnalysis(player.fullName, espnById.get(player.playerId)) ?? undefined,
+      }));
 
       if (playersRaw.length) {
         players.push(...playersRaw);
@@ -53,7 +43,8 @@ export async function GET() {
       status: 200,
       headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400" },
     });
-  } catch (e: any) {
-    return NextResponse.json({ error: e?.message ?? "Unknown error" }, { status: 500 });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
