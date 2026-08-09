@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   ColumnDef,
   flexRender,
@@ -182,16 +182,19 @@ export default function KeepersPage() {
     });
   }, [playersWithTags, teamId, position, tagFilter, search]);
 
-  function setPlayerTag(player: KeeperPlayer, tag: KeeperTag) {
-    if (!data) return;
+  const setPlayerTag = useCallback(
+    (player: KeeperPlayer, tag: KeeperTag) => {
+      if (!data) return;
 
-    saveKeeperTag(data.season, player.teamId, player.playerId, tag);
+      saveKeeperTag(data.season, player.teamId, player.playerId, tag);
 
-    setTagMap((prev) => ({
-      ...prev,
-      [keeperStorageKey(data.season, player.teamId, player.playerId)]: tag,
-    }));
-  }
+      setTagMap((prev) => ({
+        ...prev,
+        [keeperStorageKey(data.season, player.teamId, player.playerId)]: tag,
+      }));
+    },
+    [data],
+  );
 
   const columns = useMemo<ColumnDef<KeeperPlayerWithTag>[]>(
     () => [
@@ -305,9 +308,10 @@ export default function KeepersPage() {
           tagRank(rowA.original.keeperTag) - tagRank(rowB.original.keeperTag),
       },
     ],
-    [data],
+    [setPlayerTag],
   );
 
+  // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
     data: filtered,
     columns,
