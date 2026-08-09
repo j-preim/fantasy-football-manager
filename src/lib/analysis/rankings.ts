@@ -65,7 +65,7 @@ export function getKeeperValue(
   if (!analysis || keeperRound == null) return null;
 
   const keeperRoundValue =
-    analysis.adpRound == null ? null : analysis.adpRound - keeperRound;
+    analysis.adpRound == null ? null : keeperRound - analysis.adpRound;
   const valueLabel =
     keeperRoundValue == null
       ? null

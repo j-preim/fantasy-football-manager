@@ -11,13 +11,23 @@ export const playerColumns: ColumnDef<Player>[] = [
   { accessorKey: "proTeamStr", header: "NFL Team" },
   { accessorKey: "ownership", header: "Own %" },
   {
-    id: "adp",
-    accessorFn: (row) => sortableNumber(row.analysis?.adp),
+    id: "overallRank",
+    accessorFn: (row) => sortableNumber(row.analysis?.overallRank),
     sortUndefined: "last",
-    header: "FFToday ADP",
+    header: "Harris Rank",
     cell: (info) => {
       const value = info.getValue<number | undefined>();
-      return value == null ? "—" : value.toFixed(1);
+      return value == null ? "—" : `${value}`;
+    },
+  },
+  {
+    id: "espnOverallRank",
+    accessorFn: (row) => sortableNumber(row.analysis?.espnOverallRank),
+    sortUndefined: "last",
+    header: "ESPN PPR Rank",
+    cell: (info) => {
+      const value = info.getValue<number | undefined>();
+      return value == null ? "—" : `${value}`;
     },
   },
   {
@@ -31,30 +41,20 @@ export const playerColumns: ColumnDef<Player>[] = [
     },
   },
   {
-    id: "overallRank",
-    accessorFn: (row) => sortableNumber(row.analysis?.overallRank),
+    id: "adp",
+    accessorFn: (row) => sortableNumber(row.analysis?.adp),
     sortUndefined: "last",
-    header: "Harris Rank",
+    header: "FFToday ADP",
     cell: (info) => {
       const value = info.getValue<number | undefined>();
-      return value == null ? "—" : `#${value}`;
-    },
-  },
-  {
-    id: "espnOverallRank",
-    accessorFn: (row) => sortableNumber(row.analysis?.espnOverallRank),
-    sortUndefined: "last",
-    header: "ESPN PPR Rank",
-    cell: (info) => {
-      const value = info.getValue<number | undefined>();
-      return value == null ? "—" : `#${value}`;
+      return value == null ? "—" : value.toFixed(1);
     },
   },
   {
     id: "positionRank",
     accessorFn: (row) => sortableNumber(row.analysis?.positionRank),
     sortUndefined: "last",
-    header: "Pos Rank",
+    header: "Harris Pos Rank",
     cell: (info) => {
       const value = info.getValue<number | undefined>();
       return value == null
