@@ -73,6 +73,7 @@ export default function PlayersPage() {
       {
         id: "adp",
         accessorFn: (row) => row.analysis?.adp ?? null,
+        sortUndefined: "last",
         header: "FFToday ADP",
         cell: (info) => {
           const value = info.getValue<number | null>();
@@ -82,6 +83,7 @@ export default function PlayersPage() {
       {
         id: "espnAdp",
         accessorFn: (row) => row.analysis?.espnAdp ?? null,
+        sortUndefined: "last",
         header: "ESPN ADP",
         cell: (info) => {
           const value = info.getValue<number | null>();
@@ -91,6 +93,7 @@ export default function PlayersPage() {
       {
         id: "overallRank",
         accessorFn: (row) => row.analysis?.overallRank ?? null,
+        sortUndefined: "last",
         header: "Harris Rank",
         cell: (info) => {
           const row = info.row.original;
@@ -102,6 +105,7 @@ export default function PlayersPage() {
       {
         id: "espnOverallRank",
         accessorFn: (row) => row.analysis?.espnOverallRank ?? null,
+        sortUndefined: "last",
         header: "ESPN PPR Rank",
         cell: (info) => {
           const value = info.getValue<number | null>();
@@ -111,6 +115,7 @@ export default function PlayersPage() {
       {
         id: "positionRank",
         accessorFn: (row) => row.analysis?.positionRank ?? null,
+        sortUndefined: "last",
         header: "Pos Rank",
         cell: (info) => {
           const row = info.row.original;
@@ -123,7 +128,6 @@ export default function PlayersPage() {
     [],
   );
 
-  // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
     data: filtered,
     columns,
