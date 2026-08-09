@@ -226,18 +226,18 @@ export default function KeepersPage() {
           return v == null ? "-" : `${v}`;
         },
       },
-      {
-        id: "adp",
-        accessorFn: (row) => row.analysis?.adp ?? null,
-        header: "FFToday ADP",
-        cell: (info) => formatDecimal(info.getValue<number | null>()),
-      },
-      {
-        id: "espnAdp",
-        accessorFn: (row) => row.analysis?.espnAdp ?? null,
-        header: "ESPN ADP",
-        cell: (info) => formatDecimal(info.getValue<number | null>()),
-      },
+      // {
+      //   id: "adp",
+      //   accessorFn: (row) => row.analysis?.adp ?? null,
+      //   header: "FFToday ADP",
+      //   cell: (info) => formatDecimal(info.getValue<number | null>()),
+      // },
+      // {
+      //   id: "espnAdp",
+      //   accessorFn: (row) => row.analysis?.espnAdp ?? null,
+      //   header: "ESPN ADP",
+      //   cell: (info) => formatDecimal(info.getValue<number | null>()),
+      // },
       {
         id: "rank",
         accessorFn: (row) => row.analysis?.overallRank ?? null,
@@ -256,25 +256,6 @@ export default function KeepersPage() {
         cell: (info) => {
           const value = info.getValue<number | null>();
           return value == null ? "—" : `#${value}`;
-        },
-      },
-      {
-        id: "keeperRoundValue",
-        accessorFn: (row) => row.analysis?.keeperRoundValue ?? undefined,
-        sortUndefined: "last",
-        header: "FFToday Value",
-        cell: (info) => {
-          const analysis = info.row.original.analysis;
-          return analysis?.keeperRoundValue != null && analysis.valueLabel
-            ? (
-                <ValueBadge
-                  source="FFToday ADP"
-                  impliedRound={analysis.adpRound}
-                  roundValue={analysis.keeperRoundValue}
-                  valueLabel={analysis.valueLabel}
-                />
-              )
-            : "—";
         },
       },
       {
