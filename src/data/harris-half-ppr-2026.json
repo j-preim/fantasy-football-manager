@@ -1,7 +1,7 @@
 {
   "season": 2026,
   "scoring": "half-ppr",
-  "updatedAt": "8/5 - 2:31pm PST",
+  "updatedAt": "8/10 - 11:02am PST",
   "source": "Harris Half PPR",
   "sourceUrl": "https://harrishalfppr.com/160",
   "disclaimer": "Not official rankings from Christopher Harris.",
@@ -212,21 +212,21 @@
     },
     {
       "overallRank": 35,
-      "fullName": "Rashee Rice",
-      "position": "WR",
-      "positionRank": 16
-    },
-    {
-      "overallRank": 36,
       "fullName": "Quinshon Judkins",
       "position": "RB",
       "positionRank": 17
     },
     {
-      "overallRank": 37,
+      "overallRank": 36,
       "fullName": "Omarion Hampton",
       "position": "RB",
       "positionRank": 18
+    },
+    {
+      "overallRank": 37,
+      "fullName": "Rashee Rice",
+      "position": "WR",
+      "positionRank": 16
     },
     {
       "overallRank": 38,
@@ -236,67 +236,67 @@
     },
     {
       "overallRank": 39,
-      "fullName": "Jameson Williams",
+      "fullName": "Malik Nabers",
       "position": "WR",
       "positionRank": 17
     },
     {
       "overallRank": 40,
+      "fullName": "Jameson Williams",
+      "position": "WR",
+      "positionRank": 18
+    },
+    {
+      "overallRank": 41,
       "fullName": "Bucky Irving",
       "position": "RB",
       "positionRank": 20
     },
     {
-      "overallRank": 41,
-      "fullName": "Davante Adams",
-      "position": "WR",
-      "positionRank": 18
-    },
-    {
       "overallRank": 42,
-      "fullName": "Terry McLaurin",
+      "fullName": "Davante Adams",
       "position": "WR",
       "positionRank": 19
     },
     {
       "overallRank": 43,
+      "fullName": "Terry McLaurin",
+      "position": "WR",
+      "positionRank": 20
+    },
+    {
+      "overallRank": 44,
       "fullName": "Lamar Jackson",
       "position": "QB",
       "positionRank": 2
     },
     {
-      "overallRank": 44,
-      "fullName": "Rome Odunze",
-      "position": "WR",
-      "positionRank": 20
-    },
-    {
       "overallRank": 45,
-      "fullName": "Emeka Egbuka",
+      "fullName": "Rome Odunze",
       "position": "WR",
       "positionRank": 21
     },
     {
       "overallRank": 46,
-      "fullName": "D.J. Moore",
+      "fullName": "Emeka Egbuka",
       "position": "WR",
       "positionRank": 22
     },
     {
       "overallRank": 47,
-      "fullName": "Ladd McConkey",
+      "fullName": "D.J. Moore",
       "position": "WR",
       "positionRank": 23
     },
     {
       "overallRank": 48,
-      "fullName": "Jaylen Waddle",
+      "fullName": "Ladd McConkey",
       "position": "WR",
       "positionRank": 24
     },
     {
       "overallRank": 49,
-      "fullName": "Luther Burden",
+      "fullName": "Jaylen Waddle",
       "position": "WR",
       "positionRank": 25
     },
@@ -308,33 +308,33 @@
     },
     {
       "overallRank": 51,
-      "fullName": "Malik Nabers",
+      "fullName": "Garrett Wilson",
       "position": "WR",
       "positionRank": 26
     },
     {
       "overallRank": 52,
-      "fullName": "Garrett Wilson",
-      "position": "WR",
-      "positionRank": 27
-    },
-    {
-      "overallRank": 53,
       "fullName": "Cam Skattebo",
       "position": "RB",
       "positionRank": 22
     },
     {
-      "overallRank": 54,
+      "overallRank": 53,
       "fullName": "D'Andre Swift",
       "position": "RB",
       "positionRank": 23
     },
     {
-      "overallRank": 55,
+      "overallRank": 54,
       "fullName": "Joe Burrow",
       "position": "QB",
       "positionRank": 3
+    },
+    {
+      "overallRank": 55,
+      "fullName": "Luther Burden",
+      "position": "WR",
+      "positionRank": 27
     },
     {
       "overallRank": 56,
@@ -728,7 +728,7 @@
     },
     {
       "overallRank": 121,
-      "fullName": "De'Zhuan Stribling",
+      "fullName": "De'Zhaun Stribling",
       "position": "WR",
       "positionRank": 51
     },
