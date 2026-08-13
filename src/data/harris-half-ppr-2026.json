@@ -1,7 +1,7 @@
 {
   "season": 2026,
   "scoring": "half-ppr",
-  "updatedAt": "8/10 - 11:02am PST",
+  "updatedAt": "8/12 - 3:51pm PST",
   "source": "Harris Half PPR",
   "sourceUrl": "https://harrishalfppr.com/160",
   "disclaimer": "Not official rankings from Christopher Harris.",
@@ -170,27 +170,27 @@
     },
     {
       "overallRank": 28,
-      "fullName": "Josh Jacobs",
-      "position": "RB",
-      "positionRank": 14
-    },
-    {
-      "overallRank": 29,
       "fullName": "Tetairoa McMillan",
       "position": "WR",
       "positionRank": 15
     },
     {
-      "overallRank": 30,
+      "overallRank": 29,
       "fullName": "Javonte Williams",
       "position": "RB",
-      "positionRank": 15
+      "positionRank": 14
     },
     {
-      "overallRank": 31,
+      "overallRank": 30,
       "fullName": "Josh Allen",
       "position": "QB",
       "positionRank": 1
+    },
+    {
+      "overallRank": 31,
+      "fullName": "Jeremiyah Love",
+      "position": "RB",
+      "positionRank": 15
     },
     {
       "overallRank": 32,
@@ -200,25 +200,25 @@
     },
     {
       "overallRank": 33,
-      "fullName": "Jeremiyah Love",
+      "fullName": "Quinshon Judkins",
       "position": "RB",
       "positionRank": 16
     },
     {
       "overallRank": 34,
+      "fullName": "Omarion Hampton",
+      "position": "RB",
+      "positionRank": 17
+    },
+    {
+      "overallRank": 35,
       "fullName": "Brock Bowers",
       "position": "TE",
       "positionRank": 2
     },
     {
-      "overallRank": 35,
-      "fullName": "Quinshon Judkins",
-      "position": "RB",
-      "positionRank": 17
-    },
-    {
       "overallRank": 36,
-      "fullName": "Omarion Hampton",
+      "fullName": "Josh Jacobs",
       "position": "RB",
       "positionRank": 18
     },
@@ -302,33 +302,33 @@
     },
     {
       "overallRank": 50,
-      "fullName": "TreVeyon Henderson",
-      "position": "RB",
-      "positionRank": 21
-    },
-    {
-      "overallRank": 51,
       "fullName": "Garrett Wilson",
       "position": "WR",
       "positionRank": 26
     },
     {
-      "overallRank": 52,
+      "overallRank": 51,
       "fullName": "Cam Skattebo",
+      "position": "RB",
+      "positionRank": 21
+    },
+    {
+      "overallRank": 52,
+      "fullName": "D'Andre Swift",
       "position": "RB",
       "positionRank": 22
     },
     {
       "overallRank": 53,
-      "fullName": "D'Andre Swift",
-      "position": "RB",
-      "positionRank": 23
-    },
-    {
-      "overallRank": 54,
       "fullName": "Joe Burrow",
       "position": "QB",
       "positionRank": 3
+    },
+    {
+      "overallRank": 54,
+      "fullName": "David Montgomery",
+      "position": "RB",
+      "positionRank": 23
     },
     {
       "overallRank": 55,
@@ -338,69 +338,69 @@
     },
     {
       "overallRank": 56,
-      "fullName": "David Montgomery",
-      "position": "RB",
-      "positionRank": 24
-    },
-    {
-      "overallRank": 57,
       "fullName": "Drake Maye",
       "position": "QB",
       "positionRank": 4
     },
     {
-      "overallRank": 58,
+      "overallRank": 57,
       "fullName": "Courtland Sutton",
       "position": "WR",
       "positionRank": 28
     },
     {
-      "overallRank": 59,
+      "overallRank": 58,
       "fullName": "Christian Watson",
       "position": "WR",
       "positionRank": 29
     },
     {
-      "overallRank": 60,
+      "overallRank": 59,
       "fullName": "Carnell Tate",
       "position": "WR",
       "positionRank": 30
     },
     {
-      "overallRank": 61,
+      "overallRank": 60,
       "fullName": "Mike Evans",
       "position": "WR",
       "positionRank": 31
     },
     {
-      "overallRank": 62,
+      "overallRank": 61,
       "fullName": "Parker Washington",
       "position": "WR",
       "positionRank": 32
     },
     {
-      "overallRank": 63,
+      "overallRank": 62,
       "fullName": "Chuba Hubbard",
+      "position": "RB",
+      "positionRank": 24
+    },
+    {
+      "overallRank": 63,
+      "fullName": "Tony Pollard",
       "position": "RB",
       "positionRank": 25
     },
     {
       "overallRank": 64,
-      "fullName": "Tony Pollard",
+      "fullName": "Bhayshul Tuten",
       "position": "RB",
       "positionRank": 26
     },
     {
       "overallRank": 65,
-      "fullName": "Bhayshul Tuten",
-      "position": "RB",
-      "positionRank": 27
-    },
-    {
-      "overallRank": 66,
       "fullName": "Tucker Kraft",
       "position": "TE",
       "positionRank": 3
+    },
+    {
+      "overallRank": 66,
+      "fullName": "Jaylen Warren",
+      "position": "RB",
+      "positionRank": 27
     },
     {
       "overallRank": 67,
@@ -410,27 +410,27 @@
     },
     {
       "overallRank": 68,
-      "fullName": "Jaylen Warren",
+      "fullName": "Jadarian Price",
       "position": "RB",
       "positionRank": 28
     },
     {
       "overallRank": 69,
-      "fullName": "Jadarian Price",
-      "position": "RB",
-      "positionRank": 29
-    },
-    {
-      "overallRank": 70,
       "fullName": "Sam LaPorta",
       "position": "TE",
       "positionRank": 4
     },
     {
-      "overallRank": 71,
+      "overallRank": 70,
       "fullName": "Tyler Warren",
       "position": "TE",
       "positionRank": 5
+    },
+    {
+      "overallRank": 71,
+      "fullName": "TreVeyon Henderson",
+      "position": "RB",
+      "positionRank": 29
     },
     {
       "overallRank": 72,
@@ -458,105 +458,105 @@
     },
     {
       "overallRank": 76,
-      "fullName": "Alec Pierce",
+      "fullName": "Brian Thomas",
       "position": "WR",
       "positionRank": 33
     },
     {
       "overallRank": 77,
-      "fullName": "Brian Thomas",
-      "position": "WR",
-      "positionRank": 34
-    },
-    {
-      "overallRank": 78,
       "fullName": "J.K. Dobbins",
       "position": "RB",
       "positionRank": 32
     },
     {
-      "overallRank": 79,
+      "overallRank": 78,
       "fullName": "Chris Godwin",
+      "position": "WR",
+      "positionRank": 34
+    },
+    {
+      "overallRank": 79,
+      "fullName": "Michael Pittman",
       "position": "WR",
       "positionRank": 35
     },
     {
       "overallRank": 80,
-      "fullName": "Michael Pittman",
+      "fullName": "DK Metcalf",
       "position": "WR",
       "positionRank": 36
     },
     {
       "overallRank": 81,
-      "fullName": "DK Metcalf",
+      "fullName": "Makai Lemon",
       "position": "WR",
       "positionRank": 37
     },
     {
       "overallRank": 82,
-      "fullName": "Makai Lemon",
-      "position": "WR",
-      "positionRank": 38
-    },
-    {
-      "overallRank": 83,
       "fullName": "Justin Herbert",
       "position": "QB",
       "positionRank": 6
     },
     {
-      "overallRank": 84,
+      "overallRank": 83,
       "fullName": "Jayden Daniels",
       "position": "QB",
       "positionRank": 7
     },
     {
-      "overallRank": 85,
+      "overallRank": 84,
       "fullName": "Michael Wilson",
       "position": "WR",
-      "positionRank": 39
+      "positionRank": 38
     },
     {
-      "overallRank": 86,
+      "overallRank": 85,
       "fullName": "Jalen Hurts",
       "position": "QB",
       "positionRank": 8
     },
     {
-      "overallRank": 87,
+      "overallRank": 86,
       "fullName": "Marvin Harrison",
+      "position": "WR",
+      "positionRank": 39
+    },
+    {
+      "overallRank": 87,
+      "fullName": "Jakobi Meyers",
       "position": "WR",
       "positionRank": 40
     },
     {
       "overallRank": 88,
-      "fullName": "Jakobi Meyers",
-      "position": "WR",
-      "positionRank": 41
-    },
-    {
-      "overallRank": 89,
       "fullName": "Rachaad White",
       "position": "RB",
       "positionRank": 33
     },
     {
-      "overallRank": 90,
+      "overallRank": 89,
       "fullName": "Blake Corum",
       "position": "RB",
       "positionRank": 34
     },
     {
-      "overallRank": 91,
-      "fullName": "Jordyn Tyson",
+      "overallRank": 90,
+      "fullName": "Alec Pierce",
       "position": "WR",
-      "positionRank": 42
+      "positionRank": 41
     },
     {
-      "overallRank": 92,
+      "overallRank": 91,
       "fullName": "Rico Dowdle",
       "position": "RB",
       "positionRank": 35
+    },
+    {
+      "overallRank": 92,
+      "fullName": "Jordyn Tyson",
+      "position": "WR",
+      "positionRank": 42
     },
     {
       "overallRank": 93,
@@ -572,15 +572,15 @@
     },
     {
       "overallRank": 95,
-      "fullName": "Kyle Monangai",
-      "position": "RB",
-      "positionRank": 38
-    },
-    {
-      "overallRank": 96,
       "fullName": "Stefon Diggs",
       "position": "WR",
       "positionRank": 43
+    },
+    {
+      "overallRank": 96,
+      "fullName": "Kyle Monangai",
+      "position": "RB",
+      "positionRank": 38
     },
     {
       "overallRank": 97,
@@ -704,15 +704,15 @@
     },
     {
       "overallRank": 117,
-      "fullName": "Josh Downs",
-      "position": "WR",
-      "positionRank": 48
-    },
-    {
-      "overallRank": 118,
       "fullName": "Kaelon Black",
       "position": "RB",
       "positionRank": 47
+    },
+    {
+      "overallRank": 118,
+      "fullName": "Josh Downs",
+      "position": "WR",
+      "positionRank": 48
     },
     {
       "overallRank": 119,
@@ -782,15 +782,15 @@
     },
     {
       "overallRank": 130,
-      "fullName": "Mark Andrews",
-      "position": "TE",
-      "positionRank": 15
-    },
-    {
-      "overallRank": 131,
       "fullName": "Jonathon Brooks",
       "position": "RB",
       "positionRank": 50
+    },
+    {
+      "overallRank": 131,
+      "fullName": "Mark Andrews",
+      "position": "TE",
+      "positionRank": 15
     },
     {
       "overallRank": 132,
@@ -818,57 +818,57 @@
     },
     {
       "overallRank": 136,
+      "fullName": "MarShawn Lloyd",
+      "position": "RB",
+      "positionRank": 53
+    },
+    {
+      "overallRank": 137,
       "fullName": "Deebo Samuel",
       "position": "WR",
       "positionRank": 55
     },
     {
-      "overallRank": 137,
+      "overallRank": 138,
       "fullName": "Jauan Jennings",
       "position": "WR",
       "positionRank": 56
     },
     {
-      "overallRank": 138,
+      "overallRank": 139,
       "fullName": "Brian Robinson",
       "position": "RB",
-      "positionRank": 53
+      "positionRank": 54
     },
     {
-      "overallRank": 139,
+      "overallRank": 140,
       "fullName": "Jalen McMillan",
       "position": "WR",
       "positionRank": 57
     },
     {
-      "overallRank": 140,
+      "overallRank": 141,
       "fullName": "Braelon Allen",
       "position": "RB",
-      "positionRank": 54
+      "positionRank": 55
     },
     {
-      "overallRank": 141,
+      "overallRank": 142,
       "fullName": "Tre Tucker",
       "position": "WR",
       "positionRank": 58
     },
     {
-      "overallRank": 142,
+      "overallRank": 143,
       "fullName": "Emanuel Wilson",
       "position": "RB",
-      "positionRank": 55
-    },
-    {
-      "overallRank": 143,
-      "fullName": "Bo Nix",
-      "position": "QB",
-      "positionRank": 15
+      "positionRank": 56
     },
     {
       "overallRank": 144,
-      "fullName": "Jaxson Dart",
+      "fullName": "Bo Nix",
       "position": "QB",
-      "positionRank": 16
+      "positionRank": 15
     },
     {
       "overallRank": 145,
@@ -884,15 +884,15 @@
     },
     {
       "overallRank": 147,
-      "fullName": "Xavier Worthy",
-      "position": "WR",
-      "positionRank": 61
+      "fullName": "Jaxson Dart",
+      "position": "QB",
+      "positionRank": 16
     },
     {
       "overallRank": 148,
-      "fullName": "Jordan Love",
-      "position": "QB",
-      "positionRank": 17
+      "fullName": "Xavier Worthy",
+      "position": "WR",
+      "positionRank": 61
     },
     {
       "overallRank": 149,
@@ -908,63 +908,63 @@
     },
     {
       "overallRank": 151,
-      "fullName": "Dylan Sampson",
-      "position": "RB",
-      "positionRank": 56
+      "fullName": "Jordan Love",
+      "position": "QB",
+      "positionRank": 17
     },
     {
       "overallRank": 152,
+      "fullName": "Dylan Sampson",
+      "position": "RB",
+      "positionRank": 57
+    },
+    {
+      "overallRank": 153,
       "fullName": "Rashid Shaheed",
       "position": "WR",
       "positionRank": 64
     },
     {
-      "overallRank": 153,
-      "fullName": "Tyjae Spears",
-      "position": "RB",
-      "positionRank": 57
-    },
-    {
       "overallRank": 154,
-      "fullName": "Tank Bigsby",
+      "fullName": "Tyjae Spears",
       "position": "RB",
       "positionRank": 58
     },
     {
       "overallRank": 155,
-      "fullName": "Malik Davis",
+      "fullName": "Tank Bigsby",
       "position": "RB",
       "positionRank": 59
     },
     {
       "overallRank": 156,
+      "fullName": "Malik Davis",
+      "position": "RB",
+      "positionRank": 60
+    },
+    {
+      "overallRank": 157,
       "fullName": "Jake Ferguson",
       "position": "TE",
       "positionRank": 16
     },
     {
-      "overallRank": 157,
+      "overallRank": 158,
       "fullName": "Jonah Coleman",
       "position": "RB",
-      "positionRank": 60
+      "positionRank": 61
     },
     {
-      "overallRank": 158,
+      "overallRank": 159,
       "fullName": "Dallas Goedert",
       "position": "TE",
       "positionRank": 17
     },
     {
-      "overallRank": 159,
+      "overallRank": 160,
       "fullName": "Mike Washington",
       "position": "RB",
-      "positionRank": 61
-    },
-    {
-      "overallRank": 160,
-      "fullName": "Hunter Henry",
-      "position": "TE",
-      "positionRank": 18
+      "positionRank": 62
     }
   ]
 }
