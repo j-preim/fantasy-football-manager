@@ -455,6 +455,7 @@ export default function KeepersPage() {
             <option value="FLAGGED">Likely + Maybe</option>
             <option value="LIKELY">Likely only</option>
             <option value="NOT HIDDEN">Not hidden only</option>
+            <option value="TARGET">Target only</option>
             <option value="HIDDEN">Hidden only</option>
             <option value="UNFLAGGED">Unflagged only</option>
           </select>
