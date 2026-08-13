@@ -166,6 +166,7 @@ export default function KeepersPage() {
 
       if (tagFilter === "TARGET" && p.keeperTag !== "target") return false;
       if (tagFilter === "LIKELY" && p.keeperTag !== "likely") return false;
+      if (tagFilter === "NOT LIKELY" && p.keeperTag === "likely") return false;
       if (tagFilter === "NOT HIDDEN" && p.keeperTag === "hide") return false;
       if (
         tagFilter === "FLAGGED" &&
@@ -454,6 +455,7 @@ export default function KeepersPage() {
             <option value="ALL">All</option>
             <option value="FLAGGED">Likely + Maybe</option>
             <option value="LIKELY">Likely only</option>
+            <option value="NOT LIKELY">Not likely</option>
             <option value="NOT HIDDEN">Not hidden only</option>
             <option value="TARGET">Target only</option>
             <option value="HIDDEN">Hidden only</option>
