@@ -17,7 +17,7 @@ import type {
   KeeperValueLabel,
 } from "@/lib/analysis/types";
 
-type KeeperTag = "none" | "likely" | "maybe" | "hide" | "🎯";
+type KeeperTag = "none" | "likely" | "maybe" | "hide" | "target";
 
 type KeeperPlayer = {
   teamId: number;
@@ -74,7 +74,7 @@ function loadKeeperTags(season: number, players: KeeperPlayer[]): KeeperTagMap {
     const key = keeperStorageKey(season, p.teamId, p.playerId);
     const val = window.localStorage.getItem(key);
 
-    if (val === "🎯" || val === "likely" || val === "maybe" || val === "hide" || val === "none") {
+    if (val === "target" || val === "likely" || val === "maybe" || val === "hide" || val === "none") {
       out[key] = val;
     } else {
       out[key] = "none";
@@ -164,7 +164,7 @@ export default function KeepersPage() {
       if (teamId !== "ALL" && String(p.teamId) !== teamId) return false;
       if (position !== "ALL" && p.defaultPosition !== position) return false;
 
-      if (tagFilter === "🎯" && p.keeperTag !== "🎯") return false;
+      if (tagFilter === "TARGET" && p.keeperTag !== "target") return false;
       if (tagFilter === "LIKELY" && p.keeperTag !== "likely") return false;
       if (tagFilter === "NOT HIDDEN" && p.keeperTag === "hide") return false;
       if (
@@ -309,8 +309,8 @@ export default function KeepersPage() {
           return (
             <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
               <button
-                onClick={() => setPlayerTag(row, "🎯")}
-                style={tagButton(row.keeperTag === "🎯", "#fbbf24", "#92400e")}
+                onClick={() => setPlayerTag(row, "target")}
+                style={tagButton(row.keeperTag === "target", "#fbbf24", "#92400e")}
               >
                 🎯
               </button>
