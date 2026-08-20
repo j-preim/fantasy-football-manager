@@ -234,12 +234,12 @@ export default function KeepersPage() {
       //   header: "FFToday ADP",
       //   cell: (info) => formatDecimal(info.getValue<number | null>()),
       // },
-      // {
-      //   id: "espnAdp",
-      //   accessorFn: (row) => row.analysis?.espnAdp ?? null,
-      //   header: "ESPN ADP",
-      //   cell: (info) => formatDecimal(info.getValue<number | null>()),
-      // },
+      {
+        id: "espnAdp",
+        accessorFn: (row) => row.analysis?.espnAdp ?? null,
+        header: "ESPN ADP",
+        cell: (info) => formatDecimal(info.getValue<number | null>()),
+      },
       {
         id: "rank",
         accessorFn: (row) => row.analysis?.overallRank ?? null,
