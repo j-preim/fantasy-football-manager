@@ -1,7 +1,7 @@
 {
   "season": 2026,
   "scoring": "half-ppr",
-  "updatedAt": "8/18 - 10:20pm PST",
+  "updatedAt": "8/20 - 11:56am PST",
   "source": "Harris Half PPR",
   "sourceUrl": "https://harrishalfppr.com/160",
   "disclaimer": "Not official rankings from Christopher Harris.",
@@ -548,13 +548,13 @@
     },
     {
       "overallRank": 91,
-      "fullName": "Chris Rodriguez",
+      "fullName": "Kenneth Gainwell",
       "position": "RB",
       "positionRank": 37
     },
     {
       "overallRank": 92,
-      "fullName": "Kenneth Gainwell",
+      "fullName": "Chris Rodriguez",
       "position": "RB",
       "positionRank": 38
     },
@@ -566,39 +566,39 @@
     },
     {
       "overallRank": 94,
-      "fullName": "Aaron Jones",
-      "position": "RB",
-      "positionRank": 39
-    },
-    {
-      "overallRank": 95,
       "fullName": "Wan'Dale Robinson",
       "position": "WR",
       "positionRank": 42
     },
     {
+      "overallRank": 95,
+      "fullName": "Aaron Jones",
+      "position": "RB",
+      "positionRank": 39
+    },
+    {
       "overallRank": 96,
-      "fullName": "Jacory Croskey-Merritt",
+      "fullName": "Woody Marks",
       "position": "RB",
       "positionRank": 40
     },
     {
       "overallRank": 97,
-      "fullName": "Woody Marks",
+      "fullName": "Jacory Croskey-Merritt",
       "position": "RB",
       "positionRank": 41
     },
     {
       "overallRank": 98,
-      "fullName": "Dak Prescott",
-      "position": "QB",
-      "positionRank": 9
-    },
-    {
-      "overallRank": 99,
       "fullName": "Tucker Kraft",
       "position": "TE",
       "positionRank": 7
+    },
+    {
+      "overallRank": 99,
+      "fullName": "Dak Prescott",
+      "position": "QB",
+      "positionRank": 9
     },
     {
       "overallRank": 100,
@@ -608,33 +608,33 @@
     },
     {
       "overallRank": 101,
-      "fullName": "Caleb Williams",
-      "position": "QB",
-      "positionRank": 10
-    },
-    {
-      "overallRank": 102,
-      "fullName": "Quentin Johnston",
-      "position": "WR",
-      "positionRank": 44
-    },
-    {
-      "overallRank": 103,
       "fullName": "Brenton Strange",
       "position": "TE",
       "positionRank": 8
     },
     {
-      "overallRank": 104,
-      "fullName": "Trevor Lawrence",
+      "overallRank": 102,
+      "fullName": "Caleb Williams",
       "position": "QB",
-      "positionRank": 11
+      "positionRank": 10
     },
     {
-      "overallRank": 105,
+      "overallRank": 103,
+      "fullName": "Quentin Johnston",
+      "position": "WR",
+      "positionRank": 44
+    },
+    {
+      "overallRank": 104,
       "fullName": "Juwan Johnson",
       "position": "TE",
       "positionRank": 9
+    },
+    {
+      "overallRank": 105,
+      "fullName": "Trevor Lawrence",
+      "position": "QB",
+      "positionRank": 11
     },
     {
       "overallRank": 106,
@@ -656,315 +656,315 @@
     },
     {
       "overallRank": 109,
-      "fullName": "Jayden Higgins",
-      "position": "WR",
-      "positionRank": 45
-    },
-    {
-      "overallRank": 110,
       "fullName": "George Kittle",
       "position": "TE",
       "positionRank": 12
     },
     {
-      "overallRank": 111,
+      "overallRank": 110,
       "fullName": "Jordan Mason",
       "position": "RB",
       "positionRank": 43
     },
     {
-      "overallRank": 112,
+      "overallRank": 111,
       "fullName": "Isiah Pacheco",
       "position": "RB",
       "positionRank": 44
     },
     {
-      "overallRank": 113,
+      "overallRank": 112,
       "fullName": "Tyler Allgeier",
       "position": "RB",
       "positionRank": 45
     },
     {
-      "overallRank": 114,
+      "overallRank": 113,
       "fullName": "Khalil Shakir",
+      "position": "WR",
+      "positionRank": 45
+    },
+    {
+      "overallRank": 114,
+      "fullName": "Jayden Reed",
       "position": "WR",
       "positionRank": 46
     },
     {
       "overallRank": 115,
-      "fullName": "Jayden Reed",
+      "fullName": "De'Zhaun Stribling",
       "position": "WR",
       "positionRank": 47
     },
     {
       "overallRank": 116,
-      "fullName": "De'Zhaun Stribling",
+      "fullName": "Josh Downs",
       "position": "WR",
       "positionRank": 48
     },
     {
       "overallRank": 117,
-      "fullName": "Josh Downs",
+      "fullName": "Romeo Doubs",
       "position": "WR",
       "positionRank": 49
     },
     {
       "overallRank": 118,
-      "fullName": "Romeo Doubs",
-      "position": "WR",
-      "positionRank": 50
-    },
-    {
-      "overallRank": 119,
       "fullName": "Jared Goff",
       "position": "QB",
       "positionRank": 12
     },
     {
-      "overallRank": 120,
+      "overallRank": 119,
       "fullName": "Keaton Mitchell",
       "position": "RB",
       "positionRank": 46
     },
     {
-      "overallRank": 121,
+      "overallRank": 120,
       "fullName": "Patrick Mahomes",
       "position": "QB",
       "positionRank": 13
     },
     {
-      "overallRank": 122,
+      "overallRank": 121,
       "fullName": "Brock Purdy",
       "position": "QB",
       "positionRank": 14
     },
     {
-      "overallRank": 123,
-      "fullName": "Alvin Kamara",
-      "position": "RB",
-      "positionRank": 47
-    },
-    {
-      "overallRank": 124,
+      "overallRank": 122,
       "fullName": "Isaiah Likely",
       "position": "TE",
       "positionRank": 13
     },
     {
-      "overallRank": 125,
+      "overallRank": 123,
       "fullName": "Mark Andrews",
       "position": "TE",
       "positionRank": 14
     },
     {
-      "overallRank": 126,
+      "overallRank": 124,
       "fullName": "Kyle Monangai",
+      "position": "RB",
+      "positionRank": 47
+    },
+    {
+      "overallRank": 125,
+      "fullName": "MarShawn Lloyd",
       "position": "RB",
       "positionRank": 48
     },
     {
-      "overallRank": 127,
-      "fullName": "MarShawn Lloyd",
+      "overallRank": 126,
+      "fullName": "Kimani Vidal",
       "position": "RB",
       "positionRank": 49
     },
     {
-      "overallRank": 128,
-      "fullName": "Kimani Vidal",
-      "position": "RB",
+      "overallRank": 127,
+      "fullName": "Jalen Coker",
+      "position": "WR",
       "positionRank": 50
     },
     {
-      "overallRank": 129,
-      "fullName": "Jalen Coker",
+      "overallRank": 128,
+      "fullName": "Matthew Golden",
       "position": "WR",
       "positionRank": 51
     },
     {
-      "overallRank": 130,
-      "fullName": "Matthew Golden",
+      "overallRank": 129,
+      "fullName": "KC Concepcion",
       "position": "WR",
       "positionRank": 52
     },
     {
-      "overallRank": 131,
-      "fullName": "KC Concepcion",
+      "overallRank": 130,
+      "fullName": "Alec Pierce",
       "position": "WR",
       "positionRank": 53
     },
     {
-      "overallRank": 132,
-      "fullName": "Alec Pierce",
+      "overallRank": 131,
+      "fullName": "Deebo Samuel",
       "position": "WR",
       "positionRank": 54
     },
     {
-      "overallRank": 133,
-      "fullName": "Deebo Samuel",
+      "overallRank": 132,
+      "fullName": "Keenan Allen",
       "position": "WR",
       "positionRank": 55
     },
     {
+      "overallRank": 133,
+      "fullName": "Brian Robinson",
+      "position": "RB",
+      "positionRank": 50
+    },
+    {
       "overallRank": 134,
-      "fullName": "Keenan Allen",
+      "fullName": "Jauan Jennings",
       "position": "WR",
       "positionRank": 56
     },
     {
       "overallRank": 135,
-      "fullName": "Brian Robinson",
+      "fullName": "Braelon Allen",
       "position": "RB",
       "positionRank": 51
     },
     {
       "overallRank": 136,
-      "fullName": "Jauan Jennings",
-      "position": "WR",
-      "positionRank": 57
-    },
-    {
-      "overallRank": 137,
-      "fullName": "Braelon Allen",
+      "fullName": "Kaelon Black",
       "position": "RB",
       "positionRank": 52
     },
     {
+      "overallRank": 137,
+      "fullName": "Denzel Boston",
+      "position": "WR",
+      "positionRank": 57
+    },
+    {
       "overallRank": 138,
-      "fullName": "Kaelon Black",
+      "fullName": "Emanuel Wilson",
       "position": "RB",
       "positionRank": 53
     },
     {
       "overallRank": 139,
-      "fullName": "Emanuel Wilson",
-      "position": "RB",
-      "positionRank": 54
-    },
-    {
-      "overallRank": 140,
-      "fullName": "Denzel Boston",
+      "fullName": "Jordyn Tyson",
       "position": "WR",
       "positionRank": 58
     },
     {
-      "overallRank": 141,
-      "fullName": "Jordyn Tyson",
-      "position": "WR",
-      "positionRank": 59
-    },
-    {
-      "overallRank": 142,
+      "overallRank": 140,
       "fullName": "Bo Nix",
       "position": "QB",
       "positionRank": 15
     },
     {
-      "overallRank": 143,
+      "overallRank": 141,
       "fullName": "Xavier Worthy",
       "position": "WR",
-      "positionRank": 60
+      "positionRank": 59
     },
     {
-      "overallRank": 144,
+      "overallRank": 142,
       "fullName": "Jaxson Dart",
       "position": "QB",
       "positionRank": 16
     },
     {
-      "overallRank": 145,
+      "overallRank": 143,
       "fullName": "Tory Horton",
       "position": "WR",
-      "positionRank": 61
+      "positionRank": 60
     },
     {
-      "overallRank": 146,
+      "overallRank": 144,
       "fullName": "Dylan Sampson",
       "position": "RB",
-      "positionRank": 55
+      "positionRank": 54
     },
     {
-      "overallRank": 147,
+      "overallRank": 145,
       "fullName": "Jordan Love",
       "position": "QB",
       "positionRank": 17
     },
     {
-      "overallRank": 148,
+      "overallRank": 146,
       "fullName": "Isaac TeSlaa",
+      "position": "WR",
+      "positionRank": 61
+    },
+    {
+      "overallRank": 147,
+      "fullName": "Tre Tucker",
       "position": "WR",
       "positionRank": 62
     },
     {
-      "overallRank": 149,
-      "fullName": "Tre Tucker",
+      "overallRank": 148,
+      "fullName": "Jaylin Noel",
       "position": "WR",
       "positionRank": 63
     },
     {
-      "overallRank": 150,
+      "overallRank": 149,
       "fullName": "Rashid Shaheed",
       "position": "WR",
       "positionRank": 64
     },
     {
-      "overallRank": 151,
+      "overallRank": 150,
       "fullName": "Tyjae Spears",
       "position": "RB",
-      "positionRank": 56
+      "positionRank": 55
     },
     {
-      "overallRank": 152,
+      "overallRank": 151,
       "fullName": "Caleb Douglas",
       "position": "WR",
       "positionRank": 65
     },
     {
-      "overallRank": 153,
+      "overallRank": 152,
       "fullName": "Pat Bryant",
       "position": "WR",
       "positionRank": 66
     },
     {
-      "overallRank": 154,
-      "fullName": "Tank Bigsby",
-      "position": "RB",
-      "positionRank": 57
-    },
-    {
-      "overallRank": 155,
-      "fullName": "Jonah Coleman",
-      "position": "RB",
-      "positionRank": 58
-    },
-    {
-      "overallRank": 156,
+      "overallRank": 153,
       "fullName": "Jake Ferguson",
       "position": "TE",
       "positionRank": 15
     },
     {
-      "overallRank": 157,
-      "fullName": "Mike Washington",
+      "overallRank": 154,
+      "fullName": "Tank Bigsby",
       "position": "RB",
-      "positionRank": 59
+      "positionRank": 56
     },
     {
-      "overallRank": 158,
+      "overallRank": 155,
+      "fullName": "Jonah Coleman",
+      "position": "RB",
+      "positionRank": 57
+    },
+    {
+      "overallRank": 156,
+      "fullName": "Mike Washington",
+      "position": "RB",
+      "positionRank": 58
+    },
+    {
+      "overallRank": 157,
       "fullName": "Dallas Goedert",
       "position": "TE",
       "positionRank": 16
     },
     {
-      "overallRank": 159,
+      "overallRank": 158,
       "fullName": "Nick Singleton",
       "position": "RB",
-      "positionRank": 60
+      "positionRank": 59
     },
     {
-      "overallRank": 160,
+      "overallRank": 159,
       "fullName": "Hunter Henry",
       "position": "TE",
       "positionRank": 17
+    },
+    {
+      "overallRank": 160,
+      "fullName": "Emmett Johnson",
+      "position": "RB",
+      "positionRank": 60
     }
   ]
 }
