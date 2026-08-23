@@ -1,7 +1,7 @@
 {
   "season": 2026,
   "scoring": "half-ppr",
-  "updatedAt": "8/20 - 11:56am PST",
+  "updatedAt": "8/23 - 9:11am PST",
   "source": "Harris Half PPR",
   "sourceUrl": "https://harrishalfppr.com/160",
   "disclaimer": "Not official rankings from Christopher Harris.",
@@ -62,27 +62,27 @@
     },
     {
       "overallRank": 10,
-      "fullName": "De'Von Achane",
-      "position": "RB",
-      "positionRank": 7
-    },
-    {
-      "overallRank": 11,
       "fullName": "Amon-Ra St. Brown",
       "position": "WR",
       "positionRank": 4
     },
     {
-      "overallRank": 12,
+      "overallRank": 11,
       "fullName": "Ashton Jeanty",
       "position": "RB",
-      "positionRank": 8
+      "positionRank": 7
     },
     {
-      "overallRank": 13,
+      "overallRank": 12,
       "fullName": "CeeDee Lamb",
       "position": "WR",
       "positionRank": 5
+    },
+    {
+      "overallRank": 13,
+      "fullName": "De'Von Achane",
+      "position": "RB",
+      "positionRank": 8
     },
     {
       "overallRank": 14,
@@ -794,15 +794,15 @@
     },
     {
       "overallRank": 132,
-      "fullName": "Keenan Allen",
-      "position": "WR",
-      "positionRank": 55
-    },
-    {
-      "overallRank": 133,
       "fullName": "Brian Robinson",
       "position": "RB",
       "positionRank": 50
+    },
+    {
+      "overallRank": 133,
+      "fullName": "Keenan Allen",
+      "position": "WR",
+      "positionRank": 55
     },
     {
       "overallRank": 134,
@@ -824,19 +824,19 @@
     },
     {
       "overallRank": 137,
-      "fullName": "Denzel Boston",
-      "position": "WR",
-      "positionRank": 57
-    },
-    {
-      "overallRank": 138,
       "fullName": "Emanuel Wilson",
       "position": "RB",
       "positionRank": 53
     },
     {
+      "overallRank": 138,
+      "fullName": "Denzel Boston",
+      "position": "WR",
+      "positionRank": 57
+    },
+    {
       "overallRank": 139,
-      "fullName": "Jordyn Tyson",
+      "fullName": "Rashid Shaheed",
       "position": "WR",
       "positionRank": 58
     },
@@ -848,21 +848,21 @@
     },
     {
       "overallRank": 141,
-      "fullName": "Xavier Worthy",
+      "fullName": "Jordyn Tyson",
       "position": "WR",
       "positionRank": 59
     },
     {
       "overallRank": 142,
-      "fullName": "Jaxson Dart",
-      "position": "QB",
-      "positionRank": 16
+      "fullName": "Xavier Worthy",
+      "position": "WR",
+      "positionRank": 60
     },
     {
       "overallRank": 143,
-      "fullName": "Tory Horton",
-      "position": "WR",
-      "positionRank": 60
+      "fullName": "Jaxson Dart",
+      "position": "QB",
+      "positionRank": 16
     },
     {
       "overallRank": 144,
@@ -896,33 +896,33 @@
     },
     {
       "overallRank": 149,
-      "fullName": "Rashid Shaheed",
-      "position": "WR",
-      "positionRank": 64
-    },
-    {
-      "overallRank": 150,
       "fullName": "Tyjae Spears",
       "position": "RB",
       "positionRank": 55
     },
     {
-      "overallRank": 151,
+      "overallRank": 150,
       "fullName": "Caleb Douglas",
+      "position": "WR",
+      "positionRank": 64
+    },
+    {
+      "overallRank": 151,
+      "fullName": "Pat Bryant",
       "position": "WR",
       "positionRank": 65
     },
     {
       "overallRank": 152,
-      "fullName": "Pat Bryant",
-      "position": "WR",
-      "positionRank": 66
-    },
-    {
-      "overallRank": 153,
       "fullName": "Jake Ferguson",
       "position": "TE",
       "positionRank": 15
+    },
+    {
+      "overallRank": 153,
+      "fullName": "Dallas Goedert",
+      "position": "TE",
+      "positionRank": 16
     },
     {
       "overallRank": 154,
@@ -944,27 +944,27 @@
     },
     {
       "overallRank": 157,
-      "fullName": "Dallas Goedert",
-      "position": "TE",
-      "positionRank": 16
-    },
-    {
-      "overallRank": 158,
       "fullName": "Nick Singleton",
       "position": "RB",
       "positionRank": 59
     },
     {
-      "overallRank": 159,
+      "overallRank": 158,
       "fullName": "Hunter Henry",
       "position": "TE",
       "positionRank": 17
     },
     {
-      "overallRank": 160,
+      "overallRank": 159,
       "fullName": "Emmett Johnson",
       "position": "RB",
       "positionRank": 60
+    },
+    {
+      "overallRank": 160,
+      "fullName": "Oronde Gadsden",
+      "position": "TE",
+      "positionRank": 18
     }
   ]
 }
