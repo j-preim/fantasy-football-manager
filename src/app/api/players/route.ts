@@ -28,6 +28,7 @@ export async function GET() {
     }));
 
     const payload: PlayerData = {
+      season,
       players,
     };
 

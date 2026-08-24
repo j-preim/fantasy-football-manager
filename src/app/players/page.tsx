@@ -17,6 +17,9 @@ import { playerColumns } from "./columns";
 export default function PlayersPage() {
   const [data, setData] = useState<PlayerData | null>(null);
   const [err, setErr] = useState<string | null>(null);
+  const [likelyKeeperPlayerIds, setLikelyKeeperPlayerIds] = useState<Set<number>>(
+    () => new Set(),
+  );
 
   // Filters
   const [search, setSearch] = useState("");
@@ -36,11 +39,32 @@ export default function PlayersPage() {
     })().catch((e) => setErr(String(e)));
   }, []);
 
+  useEffect(() => {
+    if (!data) return;
+
+    const keeperKeyPrefix = `keepers:${data.season}:`;
+    const nextLikelyKeeperPlayerIds = new Set<number>();
+
+    for (let index = 0; index < window.localStorage.length; index += 1) {
+      const key = window.localStorage.key(index);
+
+      if (!key?.startsWith(keeperKeyPrefix)) continue;
+      if (window.localStorage.getItem(key) !== "likely") continue;
+
+      const playerId = Number(key.split(":").at(-1));
+      if (Number.isInteger(playerId)) nextLikelyKeeperPlayerIds.add(playerId);
+    }
+
+    setLikelyKeeperPlayerIds(nextLikelyKeeperPlayerIds);
+  }, [data]);
+
   const filtered: Player[] = useMemo(() => {
     if (!data) return [];
     const q = search.trim().toLowerCase();
 
     return data.players.filter((p) => {
+      if (likelyKeeperPlayerIds.has(p.playerId)) return false;
+
       if (position !== "ALL" && String(p.defaultPositionStr) !== position) return false;
 
       if (nflTeam !== "ALL" && String(p.proTeamStr) !== nflTeam) return false;
@@ -51,7 +75,7 @@ export default function PlayersPage() {
       }
       return true;
     });
-  }, [data, search, position, nflTeam]);
+  }, [data, search, position, nflTeam, likelyKeeperPlayerIds]);
 
   const positionOptions = useMemo(() => {
     if (!data) return [];

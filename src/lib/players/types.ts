@@ -22,5 +22,6 @@ export type Player = {
 };
 
 export type PlayerData = {
+  season: number;
   players: Player[];
 };
