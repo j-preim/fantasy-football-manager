@@ -1,7 +1,7 @@
 {
   "season": 2026,
   "scoring": "half-ppr",
-  "updatedAt": "8/23 - 9:11am PST",
+  "updatedAt": "8/24 - 8:15pm PST",
   "source": "Harris Half PPR",
   "sourceUrl": "https://harrishalfppr.com/160",
   "disclaimer": "Not official rankings from Christopher Harris.",
@@ -68,33 +68,33 @@
     },
     {
       "overallRank": 11,
-      "fullName": "Ashton Jeanty",
-      "position": "RB",
-      "positionRank": 7
-    },
-    {
-      "overallRank": 12,
       "fullName": "CeeDee Lamb",
       "position": "WR",
       "positionRank": 5
     },
     {
-      "overallRank": 13,
+      "overallRank": 12,
       "fullName": "De'Von Achane",
       "position": "RB",
-      "positionRank": 8
+      "positionRank": 7
     },
     {
-      "overallRank": 14,
+      "overallRank": 13,
       "fullName": "Nico Collins",
       "position": "WR",
       "positionRank": 6
     },
     {
-      "overallRank": 15,
+      "overallRank": 14,
       "fullName": "Justin Jefferson",
       "position": "WR",
       "positionRank": 7
+    },
+    {
+      "overallRank": 15,
+      "fullName": "Derrick Henry",
+      "position": "RB",
+      "positionRank": 8
     },
     {
       "overallRank": 16,
@@ -104,33 +104,33 @@
     },
     {
       "overallRank": 17,
-      "fullName": "Derrick Henry",
+      "fullName": "Kyren Williams",
       "position": "RB",
       "positionRank": 9
     },
     {
       "overallRank": 18,
-      "fullName": "Kyren Williams",
+      "fullName": "Chase Brown",
       "position": "RB",
       "positionRank": 10
     },
     {
       "overallRank": 19,
-      "fullName": "Chase Brown",
-      "position": "RB",
-      "positionRank": 11
-    },
-    {
-      "overallRank": 20,
       "fullName": "A.J. Brown",
       "position": "WR",
       "positionRank": 9
     },
     {
-      "overallRank": 21,
+      "overallRank": 20,
       "fullName": "DeVonta Smith",
       "position": "WR",
       "positionRank": 10
+    },
+    {
+      "overallRank": 21,
+      "fullName": "Ashton Jeanty",
+      "position": "RB",
+      "positionRank": 11
     },
     {
       "overallRank": 22,
